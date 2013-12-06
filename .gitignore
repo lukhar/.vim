@@ -1,0 +1,8 @@
+# plugins
+bundle      
+# dictionary data  
+spell      
+# vim temp files
+*.swp       
+# some strange stuff
+.netrwhist  
