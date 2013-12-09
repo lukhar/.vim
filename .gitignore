@@ -1,7 +1,7 @@
 # plugins
-bundle      
+bundle/ 
 # dictionary data  
-spell      
+spell/      
 # vim temp files
 *.swp       
 # some strange stuff
