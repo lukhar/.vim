@@ -48,7 +48,7 @@ NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'xolox/vim-easytags'
 NeoBundle 'xolox/vim-misc'
 NeoBundle 'edkolev/tmuxline.vim'
-
+"NeoBundle 'hdima/python-syntax'
 
 NeoBundleCheck
 "}}}
@@ -152,7 +152,7 @@ let g:unite_source_history_yank_enable = 1
 let g:unite_source_rec_max_cache_files = 2000
 
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
-nnoremap <leader>t :<C-u>Unite -no-split -buffer-name=files   -start-insert file_rec/async<cr>
+nnoremap <leader>t :<C-u>Unite -no-split -buffer-name=files   -start-insert file_rec/async:!<cr>
 nnoremap <leader>f :<C-u>Unite -no-split -buffer-name=files   -auto-preview   -start-insert file<cr>
 nnoremap <leader>h :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
 nnoremap <leader>o :<C-u>Unite -no-split -buffer-name=outline -start-insert outline<cr>
@@ -164,14 +164,14 @@ nnoremap <leader>s :<C-u>Unite grep:.<cr>
 autocmd BufLeave \[unite\]* if "nofile" ==# &buftype | setlocal bufhidden=wipe | endif
 
 " speed up recursive file searches
-if executable('ag')
-  let g:unite_source_rec_async_command= 'ag -l .'
-  let g:unite_source_grep_command = 'ag'
-  let g:unite_source_grep_default_opts = '--smart-case --nogroup --nocolor --column'
-  let g:unite_source_grep_recursive_opt = ''
-elseif
-    let g:unite_source_rec_async_command = 'ack -f --nofilter'
-    let g:unite_source_grep_command = 'ack'
+"if executable('ag')
+"  let g:unite_source_rec_async_command= 'ag -l .'
+"  let g:unite_source_grep_command = 'ag'
+"  let g:unite_source_grep_default_opts = '--smart-case --nogroup --nocolor --column'
+"  let g:unite_source_grep_recursive_opt = ''
+if executable('ack-grep')
+    let g:unite_source_rec_async_command = 'ack-grep -f --nofilter'
+    let g:unite_source_grep_command = 'ack-grep'
     let g:unite_source_grep_default_opts = '--no-color --no-heading'
     let g:unite_source_grep_recursive_opt = ''
 endif
