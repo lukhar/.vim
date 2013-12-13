@@ -163,15 +163,17 @@ nnoremap <leader>s :<C-u>Unite grep:.<cr>
 "hack for removing unite buffers form jumplist (UniteResume) doesn't work because of that"
 autocmd BufLeave \[unite\]* if "nofile" ==# &buftype | setlocal bufhidden=wipe | endif
 
-" speed up recursive file searches
+" disabled ag because it ignores files it should display for some reason...
 "if executable('ag')
 "  let g:unite_source_rec_async_command= 'ag -l .'
 "  let g:unite_source_grep_command = 'ag'
 "  let g:unite_source_grep_default_opts = '--smart-case --nogroup --nocolor --column'
 "  let g:unite_source_grep_recursive_opt = ''
-if executable('ack-grep')
-    let g:unite_source_rec_async_command = 'ack-grep -f --nofilter'
-    let g:unite_source_grep_command = 'ack-grep'
+
+" speed up recursive file searching
+if executable('ack')
+    let g:unite_source_rec_async_command = 'ack -f --nofilter'
+    let g:unite_source_grep_command = 'ack'
     let g:unite_source_grep_default_opts = '--no-color --no-heading'
     let g:unite_source_grep_recursive_opt = ''
 endif
