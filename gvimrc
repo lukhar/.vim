@@ -2,9 +2,6 @@ colorscheme solarized
 
 " set powerline Fonts
 
-"autocmd BufReadPre *.pdf set ro 
-"autocmd BufReadPost *.pdf %!pdftotext -nopgbrk "%" -
-
 " Remove menu bar
 "set guioptions-=m
 "

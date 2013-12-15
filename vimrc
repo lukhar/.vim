@@ -56,7 +56,11 @@ NeoBundleCheck
 "{{{ preffered editor setup
 
 " set powerline Fonts
-set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9.5
+if has("gui_macvim")
+    set guifont=Monaco\ for\ Powerline\:h11
+else
+    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9.5
+endif
 
 set tabstop=4
 set softtabstop=4
