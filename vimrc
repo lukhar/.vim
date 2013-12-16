@@ -47,6 +47,7 @@ NeoBundle 'terryma/vim-multiple-cursors'
 "NeoBundle 'Valloric/YouCompleteMe'
 NeoBundle 'xolox/vim-easytags'
 NeoBundle 'xolox/vim-misc'
+NeoBundle 'xolox/vim-reload'
 NeoBundle 'edkolev/tmuxline.vim'
 "NeoBundle 'hdima/python-syntax'
 
