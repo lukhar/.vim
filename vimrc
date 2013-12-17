@@ -29,7 +29,7 @@ NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'h1mesuke/unite-outline'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'majutsushi/tagbar'
-NeoBundle 'marijnh/tern_for_vim'
+"NeoBundle 'marijnh/tern_for_vim'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'othree/xml.vim'
 NeoBundle 'Raimondi/delimitMate'
@@ -104,6 +104,22 @@ autocmd FileType c,cpp,python,vim autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
+
+" auto completion adjustments
+set completeopt=menuone,longest         " get rid of pop up preview
+set pumheight=15                        " set pop up menu to have fixed lenght
+
+"In the below  mappings, the first will make <C-N> work the way it normally
+"does; however, when the menu appears, the <Down> key will be simulated. What
+"this accomplishes is it keeps a menu item always highlighted. This way you can
+"keep typing characters to narrow the matches, and the nearest match will be
+"selected so that you can hit Enter at any time to insert it. In the above
+"mappings, the second one is a little more exotic: it simulates <C-X><C-O> to
+"bring up the omni completion menu, then it simulates <C-N><C-P> to remove the
+"longest common text, and finally it simulates <Down> again to keep a match
+"highlighted
+inoremap <expr> <C-n> pumvisible() ? '<C-n>' :  '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+inoremap <expr> <M-,> pumvisible() ? '<C-n>' :  '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 "}}}
 
 "{{{ xml
@@ -156,7 +172,6 @@ let mapleader=","
 let g:unite_source_history_yank_enable = 1
 let g:unite_source_rec_max_cache_files = 2000
 
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
 nnoremap <leader>t :<C-u>Unite -no-split -buffer-name=files   -start-insert file_rec/async:!<cr>
 nnoremap <leader>f :<C-u>Unite -no-split -buffer-name=files   -auto-preview   -start-insert file<cr>
 nnoremap <leader>h :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
@@ -207,6 +222,4 @@ nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 " jedi{{{
 let g:jedi#auto_vim_configuration = 0   " disable vim auto configuration
 let g:jedi#use_tabs_not_buffers = 0     " do go to in buffers
-set completeopt=menuone,longest         " get rid of pydoc preview
-set pumheight=15                        " set pop up menu to have fixed lenght
 "}}}
