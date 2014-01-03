@@ -120,6 +120,9 @@ set pumheight=15                        " set pop up menu to have fixed lenght
 "highlighted
 inoremap <expr> <C-n> pumvisible() ? '<C-n>' :  '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 inoremap <expr> <M-,> pumvisible() ? '<C-n>' :  '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+
+" workaround to fix delay when entering insert mode with O
+set timeout timeoutlen=1000 ttimeoutlen=100
 "}}}
 
 "{{{ xml
