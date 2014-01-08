@@ -226,3 +226,7 @@ nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 let g:jedi#auto_vim_configuration = 0   " disable vim auto configuration
 let g:jedi#use_tabs_not_buffers = 0     " do go to in buffers
 "}}}
+
+" NERDTree"{{{
+let NERDTreeIgnore = ['\.pyc$'] " ignore .pyc files
+"}}}
