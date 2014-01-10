@@ -534,4 +534,15 @@ class Test${1:Class}(${2:unittest.TestCase}):
 		${7:pass}
 endsnippet
 
+snippet tdef "test function" b
+def test${1}(`!p
+if snip.indent:
+	snip.rv = 'self' + (", " if len(t[2]) else "")`${2}):
+	# given
+
+	# when
+	${3}
+	# then
+endsnippet
+
 # vim:ft=snippets:
