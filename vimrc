@@ -24,6 +24,7 @@ NeoBundle 'Shougo/vimproc', {
 
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'bling/vim-airline'
+"NeoBundle 'Lokaltog/powerline'
 NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'h1mesuke/unite-outline'
@@ -44,7 +45,7 @@ NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'terryma/vim-expand-region'
 NeoBundle 'terryma/vim-multiple-cursors'
 "NeoBundle 'Valloric/YouCompleteMe'
-NeoBundle 'xolox/vim-easytags'
+"NeoBundle 'xolox/vim-easytags'
 NeoBundle 'xolox/vim-misc'
 NeoBundle 'xolox/vim-reload'
 NeoBundle 'edkolev/tmuxline.vim'
@@ -66,9 +67,10 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 
-set novisualbell                " Turn off visualbell
+set novisualbell                " turn off visualbell
 set background=dark
-set nu                          " Line numbers on
+set relativenumber              " relative line numbers
+set number                      " line numbers on
 set showmatch                   " show matching brackets/parenthesis
 set expandtab
 set incsearch
@@ -85,6 +87,8 @@ set wildmode=longest:full,full " command <Tab> completion, list matches, then lo
 set incsearch                   " find as you type search
 set hlsearch                    " highlight search terms
 set autoread                    " auto reaload changed files
+set cursorline                  " mark cursor position
+set laststatus=2                " always show status bar
 
 filetype plugin on
 filetype on
@@ -151,7 +155,7 @@ let g:UltiSnipsSnippetDirectories=["snippets"]
 "}}}
 
 "{{{ easytags
-let g:easytags_updatetime_warn=0  "silience warning about to low update value
+"let g:easytags_updatetime_warn=0  "silience warning about to low update value
 "}}}
 
 "{{{ key mappings
@@ -225,8 +229,14 @@ nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 " jedi{{{
 let g:jedi#auto_vim_configuration = 0   " disable vim auto configuration
 let g:jedi#use_tabs_not_buffers = 0     " do go to in buffers
+let g:jedi#popup_on_dot = 1             " auto popup completion
 "}}}
 
 " NERDTree"{{{
+nnoremap <silent> <F1> :NERDTreeToggle<CR>
 let NERDTreeIgnore = ['\.pyc$'] " ignore .pyc files
+"}}}
+
+" TagBar"{{{
+nnoremap <silent> <F9> :TagbarToggle<CR>
 "}}}
