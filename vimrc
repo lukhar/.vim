@@ -46,7 +46,7 @@ NeoBundle 'terryma/vim-expand-region'
 NeoBundle 'terryma/vim-multiple-cursors'
 "NeoBundle 'Valloric/YouCompleteMe'
 "NeoBundle 'xolox/vim-easytags'                     " automatic tags generation
-"NeoBundle 'xolox/vim-misc'                         " needed by easy tags
+NeoBundle 'xolox/vim-misc'                          " needed by vim-reload
 NeoBundle 'xolox/vim-reload'                        " automatically reloads edited vim scripts
 NeoBundle 'xolox/vim-notes'
 NeoBundle 'edkolev/tmuxline.vim'
@@ -236,4 +236,13 @@ let NERDTreeIgnore = ['\.pyc$'] " ignore .pyc files
 
 " TagBar"{{{
 nnoremap <silent> <F9> :TagbarToggle<CR>
+"}}}
+
+" solarized"{{{
+call togglebg#map("<F10>")
+"}}}
+
+" notes"{{{
+let g:notes_directories = ['~/Documents/Notes']
+let g:notes_suffix = '.note'
 "}}}
