@@ -1,3 +1,4 @@
+" vim: foldmethod=marker
 " !!! Type :echo $MYVIMRC to relod vimrc file
 " This must be first, because it changes other options as side effect
 set nocompatible
@@ -24,7 +25,6 @@ NeoBundle 'Shougo/vimproc', {
 
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'bling/vim-airline'
-"NeoBundle 'Lokaltog/powerline'
 NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'h1mesuke/unite-outline'
@@ -45,11 +45,11 @@ NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'terryma/vim-expand-region'
 NeoBundle 'terryma/vim-multiple-cursors'
 "NeoBundle 'Valloric/YouCompleteMe'
-"NeoBundle 'xolox/vim-easytags'
-NeoBundle 'xolox/vim-misc'
-NeoBundle 'xolox/vim-reload'
+"NeoBundle 'xolox/vim-easytags'                     " automatic tags generation
+"NeoBundle 'xolox/vim-misc'                         " needed by easy tags
+NeoBundle 'xolox/vim-reload'                        " automatically reloads edited vim scripts
+NeoBundle 'xolox/vim-notes'
 NeoBundle 'edkolev/tmuxline.vim'
-"NeoBundle 'hdima/python-syntax'
 
 NeoBundleCheck
 "}}}
@@ -96,9 +96,6 @@ filetype indent on
 
 "color sheme
 colorscheme solarized
-
-"fold method
-set foldmethod=marker           " set symbols {{{,}}} as default fold marker
 
 syntax on
 
