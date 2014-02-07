@@ -96,7 +96,6 @@ filetype indent on
 
 "color sheme
 colorscheme solarized
-
 syntax on
 
 " set autoremoving trailing whitespaces for selected filetypes
@@ -123,6 +122,10 @@ inoremap <expr> <M-,> pumvisible() ? '<C-n>' :  '<C-x><C-o><C-n><C-p><C-r>=pumvi
 
 " workaround to fix delay when entering insert mode with O
 set timeout timeoutlen=1000 ttimeoutlen=100
+
+" write all temporary files into one directory
+set directory=$HOME/.vim/swp
+
 "}}}
 
 "{{{ xml

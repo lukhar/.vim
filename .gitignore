@@ -2,6 +2,8 @@
 bundle/ 
 # dictionary data  
 spell/      
+# swp directory
+swp/
 # vim temp files
 *.swp       
 # some strange stuff
