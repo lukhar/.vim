@@ -26,7 +26,7 @@ NeoBundle 'Shougo/vimproc', {
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'christoomey/vim-tmux-navigator'
-NeoBundle 'davidhalter/jedi-vim'
+NeoBundle 'davidhalter/jedi-vim'                    " python auto completion
 NeoBundle 'h1mesuke/unite-outline'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'vim-scripts/matchit.zip'
@@ -44,7 +44,7 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'terryma/vim-expand-region'
 NeoBundle 'terryma/vim-multiple-cursors'
-"NeoBundle 'Valloric/YouCompleteMe'
+NeoBundle 'Valloric/YouCompleteMe'                  " autocompletion for anythong else
 "NeoBundle 'xolox/vim-easytags'                     " automatic tags generation
 NeoBundle 'xolox/vim-misc'                          " needed by vim-reload
 NeoBundle 'xolox/vim-reload'                        " automatically reloads edited vim scripts
@@ -135,7 +135,8 @@ let xml_use_xhtml = 1           " enable plugin when editing html files
 "{{{ delimitMate
 let b:delimitMate_expand_space = 1
 let b:delimitMate_expand_cr = 1
-au FileType htm,html let b:delimitMate_matchpairs = "(:),[:],{:}"
+au FileType htm,html let b:delimitMate_matchpairs = '(:),[:],{:}'
+au FileType vim let b:delimitMate_quotes = "'"
 "}}}
 
 "{{{ unimpaired
@@ -248,4 +249,18 @@ call togglebg#map("<F10>")
 " notes"{{{
 let g:notes_directories = ['~/Documents/Notes']
 let g:notes_suffix = '.note'
+"}}}
+
+" YouCompleteMe"{{{
+let g:ycm_filetype_blacklist = {
+    \ 'tagbar' : 1,
+    \ 'qf' : 1,
+    \ 'notes' : 1,
+    \ 'markdown' : 1,
+    \ 'unite' : 1,
+    \ 'text' : 1,
+    \ 'vimwiki' : 1,
+    \ 'pandoc' : 1,
+    \ 'python' : 1
+    \}
 "}}}
