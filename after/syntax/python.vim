@@ -11,8 +11,12 @@ syn keyword pythonExceptions cls
 setlocal foldmethod=syntax
 
 " get rid of number of lines and filler chars
-function! CustomFoldDoc()
-    return getline(v:foldstart)
-endfunction
+set fillchars=stl:^,stlnc:-,vert:\|,fold:\ ,diff:-
 
+function! CustomFoldDoc()
+    return '+'.getline(v:foldstart)
+endfunction
 set foldtext=CustomFoldDoc()
+
+" get rid of underline highlight
+highlight Folded gui=NONE
