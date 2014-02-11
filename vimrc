@@ -1,5 +1,5 @@
 " vim: foldmethod=marker
-" !!! Type :echo $MYVIMRC to relod vimrc file
+" !!! Type :echo $MYVIMRC to reload vimrc file
 " This must be first, because it changes other options as side effect
 set nocompatible
 
@@ -44,7 +44,7 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'terryma/vim-expand-region'
 NeoBundle 'terryma/vim-multiple-cursors'
-NeoBundle 'Valloric/YouCompleteMe'                  " autocompletion for anythong else
+NeoBundle 'Valloric/YouCompleteMe'                  " autocompletion for anything else
 "NeoBundle 'xolox/vim-easytags'                     " automatic tags generation
 NeoBundle 'xolox/vim-misc'                          " needed by vim-reload
 NeoBundle 'xolox/vim-reload'                        " automatically reloads edited vim scripts
@@ -54,7 +54,7 @@ NeoBundle 'edkolev/tmuxline.vim'
 NeoBundleCheck
 "}}}
 
-"{{{ preffered editor setup
+"{{{ preferred editor setup
 
 " set powerline Fonts
 if has("gui_macvim")
@@ -86,7 +86,7 @@ set wildmenu
 set wildmode=longest:full,full " command <Tab> completion, list matches, then longest common part, then all.
 set incsearch                   " find as you type search
 set hlsearch                    " highlight search terms
-set autoread                    " auto reaload changed files
+set autoread                    " auto reload changed files
 set cursorline                  " mark cursor position
 set laststatus=2                " always show status bar
 
@@ -94,19 +94,22 @@ filetype plugin on
 filetype on
 filetype indent on
 
-"color sheme
+"color scheme
 colorscheme solarized
 syntax on
 
 " set autoremoving trailing whitespaces for selected filetypes
 autocmd FileType c,cpp,python,vim autocmd BufWritePre <buffer> :%s/\s\+$//e
 
+" have mapping for anything else
+nnoremap <leader>=  :%s/\s\+$//e<CR>
+
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
 
 " auto completion adjustments
 set completeopt=menuone,longest         " get rid of pop up preview
-set pumheight=15                        " set pop up menu to have fixed lenght
+set pumheight=15                        " set pop up menu to have fixed length
 
 "In the below  mappings, the first will make <C-N> work the way it normally
 "does; however, when the menu appears, the <Down> key will be simulated. What
