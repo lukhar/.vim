@@ -104,15 +104,6 @@ filetype indent on
 colorscheme solarized
 syntax on
 
-" set autoremoving trailing whitespaces for selected filetypes
-autocmd FileType c,cpp,python,vim autocmd BufWritePre <buffer> :%s/\s\+$//e
-
-" reload vimrc automatically on save
-autocmd BufWritePost ~/.vimrc   so ~/.vimrc
-
-" have mapping for anything else
-nnoremap <leader>=  :%s/\s\+$//e<CR>
-
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
 
@@ -137,6 +128,25 @@ set timeout timeoutlen=1000 ttimeoutlen=100
 
 " write all temporary files into one directory
 set directory=$HOME/.vim/swp
+
+" nifty function that executes command but remembers previous cursor position,
+" and search history
+function! Preserve(command)
+  " Preparation: save last search, and cursor position.
+  let _s=@/
+  let l = line(".")
+  let c = col(".")
+  " Do the business:
+  execute a:command
+  " Clean up: restore previous search history, and cursor position
+  let @/=_s
+  call cursor(l, c)
+endfunction
+
+" remove trailing spaces
+nmap _$ :call Preserve("%s/\\s\\+$//e")<CR>
+" remove empty lines
+nmap _= :call Preserve("normal gg=G")<CR>
 
 "}}}
 
