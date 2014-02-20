@@ -88,8 +88,6 @@ set scrolljump=5                " lines to scroll when cursor leaves screen
 set scrolloff=3                 " minimum lines to keep above and below cursor
 set ignorecase                  " case insensitive search
 set smartcase                   " case sensitive when uc present
-set wildmenu
-set wildmode=longest:full,full " command <Tab> completion, list matches, then longest common part, then all.
 set incsearch                   " find as you type search
 set hlsearch                    " highlight search terms
 set autoread                    " auto reload changed files
@@ -104,13 +102,26 @@ filetype indent on
 colorscheme solarized
 syntax on
 
-" Allow saving of files as sudo when I forgot to start vim using sudo.
-cmap w!! w !sudo tee > /dev/null %
-
 " auto completion adjustments
 set completeopt=menuone,longest         " get rid of pop up preview
-set pumheight=15                        " set pop up menu to have fixed length
 
+set pumheight=15                        " set pop up menu to have fixed length
+" workaround to fix delay when entering insert mode with O
+set timeout timeoutlen=1000 ttimeoutlen=100
+
+" write all temporary files into one directory
+set directory=$HOME/.vim/swp
+
+" wildmenu"{{{
+if has("wildmenu")
+    set wildignore+=*.a,*.o,*.pyc
+    set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png
+    set wildignore+=*~,*.swp,*.tmp
+    set wildmenu
+    set wildmode=longest:full,full " command <Tab> completion, list matches, then longest common part, then all.
+endif"}}}
+
+" mappings"{{{
 "In the below  mappings, the first will make <C-N> work the way it normally
 "does; however, when the menu appears, the <Down> key will be simulated. What
 "this accomplishes is it keeps a menu item always highlighted. This way you can
@@ -123,11 +134,8 @@ set pumheight=15                        " set pop up menu to have fixed length
 inoremap <expr> <C-n> pumvisible() ? '<C-n>' :  '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 inoremap <expr> <M-,> pumvisible() ? '<C-n>' :  '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
-" workaround to fix delay when entering insert mode with O
-set timeout timeoutlen=1000 ttimeoutlen=100
-
-" write all temporary files into one directory
-set directory=$HOME/.vim/swp
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %
 
 " nifty function that executes command but remembers previous cursor position,
 " and search history
@@ -146,7 +154,7 @@ endfunction
 " remove trailing spaces
 nmap _$ :call Preserve("%s/\\s\\+$//e")<CR>
 " remove empty lines
-nmap _= :call Preserve("normal gg=G")<CR>
+nmap _= :call Preserve("normal gg=G")<CR>"}}}
 
 "}}}
 
