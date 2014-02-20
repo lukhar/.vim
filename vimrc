@@ -122,6 +122,7 @@ if has("wildmenu")
 endif"}}}
 
 " mappings"{{{
+
 "In the below  mappings, the first will make <C-N> work the way it normally
 "does; however, when the menu appears, the <Down> key will be simulated. What
 "this accomplishes is it keeps a menu item always highlighted. This way you can
@@ -155,6 +156,10 @@ endfunction
 nmap _$ :call Preserve("%s/\\s\\+$//e")<CR>
 " remove empty lines
 nmap _= :call Preserve("normal gg=G")<CR>"}}}
+
+" use very magic in search/replace
+nnoremap / /\v
+cnoremap %s/ %s/\v
 
 "}}}
 
