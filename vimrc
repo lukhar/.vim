@@ -60,7 +60,13 @@ NeoBundleCheck
 if has("gui_macvim")
     set guifont=Monaco\ for\ Powerline\:h11
 else
-    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9.5
+    "set guifont=DejaVu\ Sans\ Mono\ 10
+    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10
+    "set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 10
+    "set guifont=Liberation\ Mono\ for\ Powerline\,Literation\ Mono\ Powerline\ 10
+    "set guifont=Anonymous\ Pro\ for\ Powerline\,Anonymice\ Powerline\ 12
+    "set guifont=Inconsolata\ for\ Powerline\ 12
+    "set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 12
 endif
 
 set tabstop=4
@@ -100,6 +106,9 @@ syntax on
 
 " set autoremoving trailing whitespaces for selected filetypes
 autocmd FileType c,cpp,python,vim autocmd BufWritePre <buffer> :%s/\s\+$//e
+
+" reload vimrc automatically on save
+autocmd BufWritePost ~/.vimrc   so ~/.vimrc
 
 " have mapping for anything else
 nnoremap <leader>=  :%s/\s\+$//e<CR>
@@ -159,7 +168,7 @@ let g:UltiSnipsSnippetDirectories=["snippets"]
 "}}}
 
 "{{{ easytags
-"let g:easytags_updatetime_warn=0  "silience warning about to low update value
+"let g:easytags_updatetime_warn=0  "silence warning about to low update value
 "}}}
 
 "{{{ key mappings
