@@ -50,6 +50,7 @@ NeoBundle 'xolox/vim-misc'                          " needed by vim-reload
 NeoBundle 'xolox/vim-reload'                        " automatically reloads edited vim scripts
 NeoBundle 'xolox/vim-notes'
 NeoBundle 'edkolev/tmuxline.vim'
+NeoBundle 'ervandew/supertab'
 
 NeoBundleCheck
 "}}}
@@ -122,18 +123,6 @@ if has("wildmenu")
 endif"}}}
 
 " mappings"{{{
-
-"In the below  mappings, the first will make <C-N> work the way it normally
-"does; however, when the menu appears, the <Down> key will be simulated. What
-"this accomplishes is it keeps a menu item always highlighted. This way you can
-"keep typing characters to narrow the matches, and the nearest match will be
-"selected so that you can hit Enter at any time to insert it. In the above
-"mappings, the second one is a little more exotic: it simulates <C-X><C-O> to
-"bring up the omni completion menu, then it simulates <C-N><C-P> to remove the
-"longest common text, and finally it simulates <Down> again to keep a match
-"highlighted
-inoremap <expr> <C-n> pumvisible() ? '<C-n>' :  '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-inoremap <expr> <M-,> pumvisible() ? '<C-n>' :  '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
