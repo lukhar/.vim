@@ -3,12 +3,10 @@
 " This must be first, because it changes other options as side effect
 set nocompatible
 
-"{{{ NeoBundle initialization
+"NeoBundle initialization {{{1
 set runtimepath+=~/.vim/bundle/neobundle.vim/
 call neobundle#rc(expand('~/.vim/bundle/'))
-"}}}
-
-"{{{ Repositories
+"Repositories {{{1
 " Let NeoBundle manage NeoBundle
 NeoBundleFetch 'Shougo/neobundle.vim'
 
@@ -53,10 +51,8 @@ NeoBundle 'edkolev/tmuxline.vim'
 NeoBundle 'ervandew/supertab'
 
 NeoBundleCheck
-"}}}
-
-"{{{ preferred editor setup
-
+"preferred editor setup {{{1
+"properties {{{2
 " set powerline Fonts
 if has("gui_macvim")
     set guifont=Monaco\ for\ Powerline\:h11
@@ -113,7 +109,7 @@ set timeout timeoutlen=1000 ttimeoutlen=100
 " write all temporary files into one directory
 set directory=$HOME/.vim/swp
 
-" wildmenu"{{{
+" wildmenu {{{2
 if has("wildmenu")
     set wildignore+=*.a,*.o,*.pyc
     set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png
@@ -121,48 +117,22 @@ if has("wildmenu")
     set wildmenu
     set wildmode=longest:full,full " command <Tab> completion, list matches, then longest common part, then all.
 endif"}}}
-
-" mappings"{{{
-
+" mappings {{{2
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
-
-" nifty function that executes command but remembers previous cursor position,
-" and search history
-function! Preserve(command)
-  " Preparation: save last search, and cursor position.
-  let _s=@/
-  let l = line(".")
-  let c = col(".")
-  " Do the business:
-  execute a:command
-  " Clean up: restore previous search history, and cursor position
-  let @/=_s
-  call cursor(l, c)
-endfunction
-
 " remove trailing spaces
-nmap _$ :call Preserve("%s/\\s\\+$//e")<CR>
-" remove empty lines
-nmap _= :call Preserve("normal gg=G")<CR>"}}}
-
+nmap _$ :%s/\s+$//e<CR>
 " use very magic in search/replace
 nnoremap / /\v
 cnoremap %s/ %s/\v
-
-"}}}
-
-"{{{ xml
+"plugin settings {{{1
+"xml {{{2
 let xml_use_xhtml = 1           " enable plugin when editing html files
-"}}}
-
-"{{{ delimitMate
+"delimitMate {{{2
 let b:delimitMate_expand_space = 1
 let b:delimitMate_expand_cr = 1
 au FileType htm,html let b:delimitMate_matchpairs = '(:),[:],{:}'
 au FileType vim let b:delimitMate_quotes = "'"
-"}}}
-
 "{{{ unimpaired
 " Bubble single lines
 nmap <C-Up> [e
@@ -170,36 +140,24 @@ nmap <C-Down> ]e
 " Bubble multiple lines
 vmap <C-Up> [egv
 vmap <C-Down> ]egv
-"}}}
-
-"{{{ UltiSnips
+"UltiSnips  {{{2
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsSnippetDirectories=["snippets"]
-"}}}
-
-"{{{ easytags
+"easytags {{{2
 "let g:easytags_updatetime_warn=0  "silence warning about to low update value
-"}}}
-
-"{{{ key mappings
-
+"key mappings {{{2
 "This unsets the "last search pattern" register by hitting return
 nnoremap <CR> :noh<CR><CR>
-
 "Set current working directory to current file
 nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
-
 " copy paste mappings
 vnoremap <C-Insert> "+y
 map <S-Insert> "+gP
-
 " set <leader> to , instead of \
 let mapleader=","
-"}}}
-
-"{{{ Unite
+"Unite {{{2
 let g:unite_source_history_yank_enable = 1
 let g:unite_source_rec_max_cache_files = 2000
 
@@ -229,53 +187,33 @@ if executable('ack')
     let g:unite_source_grep_default_opts = '--no-color --no-heading'
     let g:unite_source_grep_recursive_opt = ''
 endif
-
-"}}}
-
-"{{{ YouCompleteMe
+"YouCompleteMe {{{2
 let g:ycm_autoclose_preview_window_after_completion=1
 nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
-"}}}
-
-"{{{ airline
+"airline {{{2
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
-"}}}
-
-"{{{ tmux-navigator
+"tmux-navigator {{{2
 let g:tmux_navigator_no_mappings = 1
-
 nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
 nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
-"}}}
-
-" jedi{{{
+" jedi{{{2
 let g:jedi#auto_vim_configuration = 0   " disable vim auto configuration
 let g:jedi#use_tabs_not_buffers = 0     " do go to in buffers
 let g:jedi#popup_on_dot = 1             " auto popup completion
-"}}}
-
-" NERDTree"{{{
+" NERDTree {{{2
 nnoremap <silent> <F1> :NERDTreeToggle<CR>
 let NERDTreeIgnore = ['\.pyc$'] " ignore .pyc files
-"}}}
-
-" TagBar"{{{
+" TagBar {{{2
 nnoremap <silent> <F9> :TagbarToggle<CR>
-"}}}
-
-" solarized"{{{
+" solarized {{{2
 call togglebg#map("<F10>")
-"}}}
-
-" notes"{{{
+" notes {{{2
 let g:notes_directories = ['~/Documents/Notes']
 let g:notes_suffix = '.note'
-"}}}
-
-" YouCompleteMe"{{{
+" YouCompleteMe {{{2
 let g:ycm_filetype_blacklist = {
     \ 'tagbar' : 1,
     \ 'qf' : 1,
@@ -287,4 +225,3 @@ let g:ycm_filetype_blacklist = {
     \ 'pandoc' : 1,
     \ 'python' : 1
     \}
-"}}}
