@@ -49,6 +49,8 @@ NeoBundle 'xolox/vim-reload'                        " automatically reloads edit
 NeoBundle 'xolox/vim-notes'
 NeoBundle 'edkolev/tmuxline.vim'
 NeoBundle 'ervandew/supertab'
+NeoBundle 'scrooloose/syntastic'
+
 
 NeoBundleCheck
 "preferred editor setup {{{1
