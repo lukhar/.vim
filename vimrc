@@ -33,6 +33,7 @@ NeoBundle 'othree/xml.vim'
 NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'SirVer/ultisnips'
 NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'tpope/vim-abolish'
@@ -110,6 +111,9 @@ set timeout timeoutlen=1000 ttimeoutlen=100
 
 " write all temporary files into one directory
 set directory=$HOME/.vim/swp
+
+" faster macro execution
+set lazyredraw
 
 " wildmenu {{{2
 if has("wildmenu")
@@ -202,9 +206,12 @@ nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 " jedi{{{2
+let g:jedi#auto_initialization = 1
+let g:jedi#show_call_signatures = 0
 let g:jedi#auto_vim_configuration = 0   " disable vim auto configuration
 let g:jedi#use_tabs_not_buffers = 0     " do go to in buffers
 let g:jedi#popup_on_dot = 1             " auto popup completion
+let g:jedi#popup_select_first = 0
 " NERDTree {{{2
 nnoremap <silent> <F1> :NERDTreeToggle<CR>
 let NERDTreeIgnore = ['\.pyc$'] " ignore .pyc files
@@ -234,3 +241,5 @@ let g:syntastic_style_error_symbol = '⚠'
 let g:syntastic_style_warning_symbol = '⚠'
 let g:syntastic_python_checkers = ['pylint', 'pep8']
 let g:syntastic_aggregate_errors = 1
+" SuperTab {{{2
+let g:SuperTabLongestHighlight= 0
