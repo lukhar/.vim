@@ -227,3 +227,10 @@ let g:ycm_filetype_blacklist = {
     \ 'pandoc' : 1,
     \ 'python' : 1
     \}
+" syntastic {{{2
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_warning_symbol = '⚠'
+let g:syntastic_style_error_symbol = '⚠'
+let g:syntastic_style_warning_symbol = '⚠'
+let g:syntastic_python_checkers = ['pylint', 'pep8']
+let g:syntastic_aggregate_errors = 1
