@@ -206,12 +206,11 @@ nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 " jedi{{{2
-let g:jedi#auto_initialization = 1
 let g:jedi#show_call_signatures = 0
 let g:jedi#auto_vim_configuration = 0   " disable vim auto configuration
 let g:jedi#use_tabs_not_buffers = 0     " do go to in buffers
 let g:jedi#popup_on_dot = 1             " auto popup completion
-let g:jedi#popup_select_first = 0
+let g:jedi#popup_select_first = 1
 " NERDTree {{{2
 nnoremap <silent> <F1> :NERDTreeToggle<CR>
 let NERDTreeIgnore = ['\.pyc$'] " ignore .pyc files
