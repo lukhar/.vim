@@ -131,6 +131,15 @@ nmap _$ :%s/\s+$//e<CR>
 " use very magic in search/replace
 nnoremap / /\v
 cnoremap %s/ %s/\v
+
+function! MyPep8Format()
+    execute '!autopep8 --in-place --max-line-length 120 %'
+    execute ':SyntasticCheck'
+endfunction
+
+" format according to pep8 and check syntax
+nnoremap <silent> <F11> :call MyPep8Format()<CR>
+
 "plugin settings {{{1
 "xml {{{2
 let xml_use_xhtml = 1           " enable plugin when editing html files
