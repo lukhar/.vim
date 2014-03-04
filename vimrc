@@ -43,7 +43,7 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'terryma/vim-expand-region'
 NeoBundle 'terryma/vim-multiple-cursors'
-NeoBundle 'Valloric/YouCompleteMe'                  " autocompletion for anything else
+"NeoBundle 'Valloric/YouCompleteMe'                  " autocompletion for anything else
 "NeoBundle 'xolox/vim-easytags'                     " automatic tags generation
 NeoBundle 'xolox/vim-misc'                          " needed by vim-reload
 NeoBundle 'xolox/vim-reload'                        " automatically reloads edited vim scripts
@@ -194,8 +194,8 @@ endif
 "    let g:unite_source_grep_recursive_opt = ''
 "endif
 "YouCompleteMe {{{2
-let g:ycm_autoclose_preview_window_after_completion=1
-nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+"let g:ycm_autoclose_preview_window_after_completion=1
+"nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 "airline {{{2
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
@@ -241,4 +241,5 @@ let g:syntastic_style_warning_symbol = '⚠'
 let g:syntastic_python_checkers = ['pylint', 'pep8']
 let g:syntastic_aggregate_errors = 1
 " SuperTab {{{2
-let g:SuperTabLongestHighlight= 0
+let g:SuperTabLongestHighlight = 0
+let g:SuperTabDefaultCompletionType = "context"
