@@ -236,10 +236,12 @@ let g:ycm_filetype_blacklist = {
 " syntastic {{{2
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '⚠'
-let g:syntastic_style_error_symbol = '⚠'
-let g:syntastic_style_warning_symbol = '⚠'
+let g:syntastic_style_error_symbol = '☹'
+let g:syntastic_style_warning_symbol = '☹'
 let g:syntastic_python_checkers = ['pylint', 'pep8']
 let g:syntastic_aggregate_errors = 1
+
+autocmd FileType python nnoremap <buffer> <F12> :SyntasticCheck<CR>
 " SuperTab {{{2
 let g:SuperTabLongestHighlight = 0
 let g:SuperTabDefaultCompletionType = "context"
