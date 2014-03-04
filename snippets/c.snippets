@@ -2,6 +2,8 @@
 #                            TextMate Snippets                            #
 ###########################################################################
 
+priority -50
+
 snippet def "#define ..."
 #define ${1}
 endsnippet
@@ -12,7 +14,7 @@ snippet ifndef "#ifndef ... #define ... #endif"
 #endif
 endsnippet
 
-snippet #if "#if #endif" !b
+snippet #if "#if #endif" b
 #if ${1:0}
 ${VISUAL}${0:${VISUAL/(.*)/(?1::code)/}}
 #endif
@@ -69,7 +71,7 @@ if not snip.c:
 	rand = ''.join(random.sample(string.ascii_letters+string.digits, 8))
 	snip.rv = ('%s_%s' % (name,rand)).upper()
 else:
-    snip.rv = snip.c`}
+	snip.rv = snip.c`}
 #define $1
 
 ${0}
@@ -107,6 +109,12 @@ endsnippet
 
 snippet el "else .. (else)"
 else {
+	${VISUAL}${0:${VISUAL/(.*)/(?1::\/* code *\/)/}}
+}
+endsnippet
+
+snippet eli "else if .. (eli)"
+else if (${1:/* condition */}) {
 	${VISUAL}${0:${VISUAL/(.*)/(?1::\/* code *\/)/}}
 }
 endsnippet
