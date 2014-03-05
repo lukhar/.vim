@@ -159,7 +159,7 @@ vmap <C-Down> ]egv
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-let g:UltiSnipsSnippetDirectories=["snippets"]
+let g:UltiSnipsSnippetDirectories=["customized_snippets"]
 "easytags {{{2
 "let g:easytags_updatetime_warn=0  "silence warning about to low update value
 "key mappings {{{2
