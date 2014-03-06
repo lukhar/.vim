@@ -140,6 +140,12 @@ endfunction
 " format according to pep8 and check syntax
 nnoremap <silent> <F11> :call MyPep8Format()<CR>
 
+" retain screen position when switching the buffers
+if v:version >= 700
+  au BufLeave * let b:winview = winsaveview()
+  au BufEnter * if(exists('b:winview')) | call winrestview(b:winview) | endif
+endif
+
 "plugin settings {{{1
 "xml {{{2
 let xml_use_xhtml = 1           " enable plugin when editing html files
