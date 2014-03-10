@@ -133,6 +133,7 @@ nnoremap / /\v
 cnoremap %s/ %s/\v
 
 function! MyPep8Format()
+    execute ':w'
     execute '!autopep8 --in-place --max-line-length 120 %'
     execute ':SyntasticCheck'
 endfunction
@@ -228,6 +229,7 @@ let g:jedi#popup_on_dot = 1             " auto popup completion
 let g:jedi#popup_select_first = 1
 " NERDTree {{{2
 nnoremap <silent> <F1> :NERDTreeToggle<CR>
+nnoremap <silent> <F2> :NERDTreeFind<CR>
 let NERDTreeIgnore = ['\.pyc$'] " ignore .pyc files
 " TagBar {{{2
 nnoremap <silent> <F9> :TagbarToggle<CR>
@@ -256,7 +258,7 @@ let g:syntastic_style_warning_symbol = '☹'
 let g:syntastic_python_checkers = ['pylint', 'pep8']
 let g:syntastic_aggregate_errors = 1
 
-autocmd FileType python nnoremap <buffer> <F12> :SyntasticCheck<CR>
+autocmd FileType python nnoremap <buffer> <silent> <F12> :SyntasticCheck<CR>
 " SuperTab {{{2
 let g:SuperTabLongestHighlight = 0
 let g:SuperTabDefaultCompletionType = "context"
