@@ -115,6 +115,11 @@ set directory=$HOME/.vim/swp
 " faster macro execution
 set lazyredraw
 
+" retain screen position when switching the buffers
+if v:version >= 700
+  au BufLeave * let b:winview = winsaveview()
+  au BufEnter * if(exists('b:winview')) | call winrestview(b:winview) | endif
+endif
 " wildmenu {{{2
 if has("wildmenu")
     set wildignore+=*.a,*.o,*.pyc
@@ -127,10 +132,7 @@ endif"}}}
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
 " remove trailing spaces
-nmap _$ :%s/\s+$//e<CR>
-" use very magic in search/replace
-nnoremap / /\v
-cnoremap %s/ %s/\v
+nmap _$ :%s/\v\s+$//e<CR>
 
 function! MyPep8Format()
     execute ':w'
@@ -141,11 +143,17 @@ endfunction
 " format according to pep8 and check syntax
 nnoremap <silent> <F11> :call MyPep8Format()<CR>
 
-" retain screen position when switching the buffers
-if v:version >= 700
-  au BufLeave * let b:winview = winsaveview()
-  au BufEnter * if(exists('b:winview')) | call winrestview(b:winview) | endif
-endif
+" Below mappings disable highlighting for last search pattern
+" by hitting <enter> or <esc> respectively
+nnoremap <CR> :noh<CR><CR>
+nnoremap <esc> :noh<return><esc>
+" Set current working directory to current file
+nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
+" copy paste mappings
+vnoremap <C-Insert> "+y
+map <S-Insert> "+gP
+" set <leader> to , instead of \
+let mapleader=","
 
 "plugin settings {{{1
 "xml {{{2
@@ -169,16 +177,6 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsSnippetDirectories=["customized_snippets"]
 "easytags {{{2
 "let g:easytags_updatetime_warn=0  "silence warning about to low update value
-"key mappings {{{2
-"This unsets the "last search pattern" register by hitting return
-nnoremap <CR> :noh<CR><CR>
-"Set current working directory to current file
-nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
-" copy paste mappings
-vnoremap <C-Insert> "+y
-map <S-Insert> "+gP
-" set <leader> to , instead of \
-let mapleader=","
 "Unite {{{2
 let g:unite_source_history_yank_enable = 1
 let g:unite_source_rec_max_cache_files = 2000
