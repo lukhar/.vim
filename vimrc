@@ -120,6 +120,10 @@ if v:version >= 700
   au BufLeave * let b:winview = winsaveview()
   au BufEnter * if(exists('b:winview')) | call winrestview(b:winview) | endif
 endif
+
+" automatically remove trailing whitespace characters on save
+autocmd FileType c,cpp,python,vim,js autocmd BufWritePre <buffer> :%s/\s\+$//e
+
 " wildmenu {{{2
 if has("wildmenu")
     set wildignore+=*.a,*.o,*.pyc
@@ -133,15 +137,6 @@ endif"}}}
 cmap w!! w !sudo tee > /dev/null %
 " remove trailing spaces
 nmap _$ :%s/\v\s+$//e<CR>
-
-function! MyPep8Format()
-    execute ':w'
-    execute '!autopep8 --in-place --max-line-length 120 %'
-    execute ':SyntasticCheck'
-endfunction
-
-" format according to pep8 and check syntax
-nnoremap <silent> <F11> :call MyPep8Format()<CR>
 
 " Below mappings disable highlighting for last search pattern
 " by hitting <enter> or <esc> respectively
@@ -253,7 +248,7 @@ let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '⚠'
 let g:syntastic_style_error_symbol = '☹'
 let g:syntastic_style_warning_symbol = '☹'
-let g:syntastic_python_checkers = ['pylint', 'pep8']
+let g:syntastic_python_checkers = ['pylint', 'pep8', 'pyflakes']
 let g:syntastic_aggregate_errors = 1
 
 autocmd FileType python nnoremap <buffer> <silent> <F12> :SyntasticCheck<CR>

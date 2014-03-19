@@ -6,9 +6,3 @@ syn region Comment  start=+^\s*[uU]\?[rR]\?'''+ end=+'''+ keepend excludenl cont
 " highlight self and cls as keywords
 syn keyword pythonExceptions self
 syn keyword pythonExceptions cls
-
-
-" preferred indentation
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
