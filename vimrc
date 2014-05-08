@@ -43,7 +43,7 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'terryma/vim-expand-region'
 NeoBundle 'terryma/vim-multiple-cursors'
-"NeoBundle 'Valloric/YouCompleteMe'                  " autocompletion for anything else
+"NeoBundle 'Valloric/YouCompleteMe'                 " autocompletion for anything else
 "NeoBundle 'xolox/vim-easytags'                     " automatic tags generation
 NeoBundle 'xolox/vim-misc'                          " needed by vim-reload
 NeoBundle 'xolox/vim-reload'                        " automatically reloads edited vim scripts
@@ -51,6 +51,7 @@ NeoBundle 'xolox/vim-notes'
 NeoBundle 'edkolev/tmuxline.vim'
 NeoBundle 'ervandew/supertab'
 NeoBundle 'scrooloose/syntastic'
+NeoBundle 'embear/vim-localvimrc'                   " localvimrc files .lvimrc
 
 
 NeoBundleCheck
@@ -93,6 +94,7 @@ set hlsearch                    " highlight search terms
 set autoread                    " auto reload changed files
 set cursorline                  " mark cursor position
 set laststatus=2                " always show status bar
+set hidden                      " unsaved buffers are hidden now (no more errors when opening new file while having unsaved changes)
 
 filetype plugin on
 filetype on
@@ -250,8 +252,12 @@ let g:syntastic_style_error_symbol = '☹'
 let g:syntastic_style_warning_symbol = '☹'
 let g:syntastic_python_checkers = ['pylint', 'pep8', 'pyflakes']
 let g:syntastic_aggregate_errors = 1
+let g:syntastic_python_pylint_exec = 'pylint2'
 
 autocmd FileType python nnoremap <buffer> <silent> <F12> :SyntasticCheck<CR>
 " SuperTab {{{2
 let g:SuperTabLongestHighlight = 0
 let g:SuperTabDefaultCompletionType = "context"
+" local-vimrc {{{2
+let g:localvimrc_ask = 0
+let g:localvimrc_sandbox = 0
