@@ -75,6 +75,7 @@ set softtabstop=4
 set shiftwidth=4
 
 set novisualbell                " turn off visualbell
+set noerrorbells
 set background=dark
 set relativenumber              " relative line numbers
 set number                      " line numbers on
