@@ -24,7 +24,7 @@ NeoBundle 'Shougo/vimproc', {
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'christoomey/vim-tmux-navigator'
-NeoBundle 'davidhalter/jedi-vim'                    " python auto completion
+"NeoBundle 'davidhalter/jedi-vim'                    " python auto completion
 NeoBundle 'h1mesuke/unite-outline'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'vim-scripts/matchit.zip'
@@ -43,13 +43,13 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'terryma/vim-expand-region'
 NeoBundle 'terryma/vim-multiple-cursors'
-"NeoBundle 'Valloric/YouCompleteMe'                 " autocompletion for anything else
+NeoBundle 'Valloric/YouCompleteMe'                  " autocompletion for anything else
 "NeoBundle 'xolox/vim-easytags'                     " automatic tags generation
 NeoBundle 'xolox/vim-misc'                          " needed by vim-reload
 NeoBundle 'xolox/vim-reload'                        " automatically reloads edited vim scripts
 NeoBundle 'xolox/vim-notes'
 NeoBundle 'edkolev/tmuxline.vim'
-NeoBundle 'ervandew/supertab'
+"NeoBundle 'ervandew/supertab'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'embear/vim-localvimrc'                   " localvimrc files .lvimrc
 
@@ -169,10 +169,11 @@ nmap <C-Down> ]e
 vmap <C-Up> [egv
 vmap <C-Down> ]egv
 "UltiSnips  {{{2
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:UltiSnipsSnippetDirectories=["customized_snippets"]
+
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 "easytags {{{2
 "let g:easytags_updatetime_warn=0  "silence warning about to low update value
 "Unite {{{2
@@ -205,9 +206,6 @@ endif
 "    let g:unite_source_grep_default_opts = '--no-color --no-heading'
 "    let g:unite_source_grep_recursive_opt = ''
 "endif
-"YouCompleteMe {{{2
-"let g:ycm_autoclose_preview_window_after_completion=1
-"nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 "airline {{{2
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
@@ -244,8 +242,10 @@ let g:ycm_filetype_blacklist = {
     \ 'text' : 1,
     \ 'vimwiki' : 1,
     \ 'pandoc' : 1,
-    \ 'python' : 1
     \}
+let g:ycm_auto_trigger = 1
+let g:ycm_key_list_previous_completion=['<Up>']
+nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 " syntastic {{{2
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '⚠'
