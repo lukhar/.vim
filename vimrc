@@ -144,7 +144,6 @@ nmap _$ :%s/\v\s+$//e<CR>
 " Below mappings disable highlighting for last search pattern
 " by hitting <enter> or <esc> respectively
 nnoremap <CR> :noh<CR><CR>
-nnoremap <esc> :noh<return><esc>
 " Set current working directory to current file
 nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
 " copy paste mappings
@@ -245,6 +244,7 @@ let g:ycm_filetype_blacklist = {
     \}
 let g:ycm_auto_trigger = 1
 let g:ycm_key_list_previous_completion=['<Up>']
+let g:ycm_path_to_python_interpreter = '/usr/bin/python'
 nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 " syntastic {{{2
 let g:syntastic_error_symbol = '✗'
