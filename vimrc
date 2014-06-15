@@ -52,6 +52,7 @@ NeoBundle 'edkolev/tmuxline.vim'
 "NeoBundle 'ervandew/supertab'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'embear/vim-localvimrc'                   " localvimrc files .lvimrc
+NeoBundle 'inside/vim-search-pulse'                 " mark word under cursor
 
 
 NeoBundleCheck
@@ -262,3 +263,5 @@ let g:SuperTabDefaultCompletionType = "context"
 " local-vimrc {{{2
 let g:localvimrc_ask = 0
 let g:localvimrc_sandbox = 0
+" pulse {{{2
+let g:vim_search_pulse_mode = 'pattern'
