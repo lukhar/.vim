@@ -245,7 +245,6 @@ let g:ycm_filetype_blacklist = {
     \}
 let g:ycm_auto_trigger = 1
 let g:ycm_key_list_previous_completion=['<Up>']
-let g:ycm_path_to_python_interpreter = '/usr/bin/python'
 nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 " syntastic {{{2
 let g:syntastic_error_symbol = '✗'
