@@ -265,3 +265,4 @@ let g:localvimrc_ask = 0
 let g:localvimrc_sandbox = 0
 " pulse {{{2
 let g:vim_search_pulse_mode = 'pattern'
+let g:vim_search_pulse_duration = 400
