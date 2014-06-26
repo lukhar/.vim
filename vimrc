@@ -21,7 +21,7 @@ NeoBundle 'Shougo/vimproc', {
       \    },
       \ }
 
-NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'jwhitley/vim-colors-solarized'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'christoomey/vim-tmux-navigator'
 "NeoBundle 'davidhalter/jedi-vim'                    " python auto completion
@@ -53,6 +53,7 @@ NeoBundle 'edkolev/tmuxline.vim'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'embear/vim-localvimrc'                   " localvimrc files .lvimrc
 NeoBundle 'inside/vim-search-pulse'                 " mark word under cursor
+NeoBundle 'airblade/vim-gitgutter'                  " show modified lines (requires git)
 
 
 NeoBundleCheck
