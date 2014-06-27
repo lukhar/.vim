@@ -115,7 +115,7 @@ set pumheight=15                        " set pop up menu to have fixed length
 set timeout timeoutlen=1000 ttimeoutlen=100
 
 " write all temporary files into one directory
-set directory=$HOME/.vim/swp
+set directory=$HOME/.vim/swp//
 
 " faster macro execution
 set lazyredraw
@@ -140,19 +140,30 @@ endif"}}}
 " mappings {{{2
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
+
 " remove trailing spaces
 nmap _$ :%s/\v\s+$//e<CR>
 
 " Below mappings disable highlighting for last search pattern
-" by hitting <enter> or <esc> respectively
-nnoremap <CR> :noh<CR><CR>
+" by hitting <enter>
+nnoremap <CR> :noh<CR>
+
 " Set current working directory to current file
 nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
+
 " copy paste mappings
 vnoremap <C-Insert> "+y
 map <S-Insert> "+gP
+
 " set <leader> to , instead of \
 let mapleader=","
+
+" don't move when * pressed
+nmap * *<c-o>
+
+" source current line or visual selection
+vnoremap <leader>S y:execute @@<cr>:echo 'Sourced selection.'<cr>
+nnoremap <leader>S ^vg_y:execute @@<cr>:echo 'Sourced line.'<cr>
 
 "plugin settings {{{1
 "xml {{{2
@@ -192,11 +203,10 @@ nnoremap <leader>s :<C-u>Unite grep:.<cr>
 "hack for removing unite buffers form jumplist (UniteResume) doesn't work because of that"
 autocmd BufLeave \[unite\]* if "nofile" ==# &buftype | setlocal bufhidden=wipe | endif
 
-" disabled ag because it ignores files it should display for some reason...
 if executable('ag')
   let g:unite_source_rec_async_command= 'ag -l .'
   let g:unite_source_grep_command = 'ag'
-  let g:unite_source_grep_default_opts = '--smart-case --nogroup --nocolor --column --ignore *.ipnyb'
+  let g:unite_source_grep_default_opts = '--smart-case --nogroup --nocolor --column --ignore ''*.ipynb'''
   let g:unite_source_grep_recursive_opt = ''
 endif
 
@@ -245,7 +255,7 @@ let g:ycm_filetype_blacklist = {
     \ 'pandoc' : 1,
     \}
 let g:ycm_auto_trigger = 1
-let g:ycm_key_list_previous_completion=['<Up>']
+let g:ycm_key_list_previous_completion = ['<S-TAB>']
 nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 " syntastic {{{2
 let g:syntastic_error_symbol = '✗'
