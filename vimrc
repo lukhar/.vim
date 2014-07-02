@@ -158,9 +158,6 @@ map <S-Insert> "+gP
 " set <leader> to , instead of \
 let mapleader=","
 
-" don't move when * pressed
-nmap * *<c-o>
-
 " source current line or visual selection
 vnoremap <leader>S y:execute @@<cr>:echo 'Sourced selection.'<cr>
 nnoremap <leader>S ^vg_y:execute @@<cr>:echo 'Sourced line.'<cr>
