@@ -25,7 +25,7 @@ NeoBundle 'jwhitley/vim-colors-solarized'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'christoomey/vim-tmux-navigator'
 "NeoBundle 'davidhalter/jedi-vim'                    " python auto completion
-NeoBundle 'h1mesuke/unite-outline'
+NeoBundle 'Shougo/unite-outline'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'vim-scripts/matchit.zip'
 NeoBundle 'mattn/emmet-vim'
