@@ -54,6 +54,7 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundle 'embear/vim-localvimrc'                   " localvimrc files .lvimrc
 NeoBundle 'inside/vim-search-pulse'                 " mark word under cursor
 NeoBundle 'airblade/vim-gitgutter'                  " show modified lines (requires git)
+NeoBundle 'bps/vim-textobj-python'                  " text objects for python
 
 
 NeoBundleCheck
