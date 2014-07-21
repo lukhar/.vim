@@ -90,8 +90,6 @@ set autoindent
 set smartindent
 set backspace=indent,eol,start  " backspace for dummies
 set showmode
-set scrolljump=5                " lines to scroll when cursor leaves screen
-set scrolloff=3                 " minimum lines to keep above and below cursor
 set ignorecase                  " case insensitive search
 set smartcase                   " case sensitive when uc present
 set incsearch                   " find as you type search
