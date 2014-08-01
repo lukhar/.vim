@@ -162,6 +162,9 @@ let mapleader=","
 vnoremap <leader>S y:execute @@<cr>:echo 'Sourced selection.'<cr>
 nnoremap <leader>S ^vg_y:execute @@<cr>:echo 'Sourced line.'<cr>
 
+" more vim-like behavior
+nnoremap Y y$
+
 "plugin settings {{{1
 "xml {{{2
 let xml_use_xhtml = 1           " enable plugin when editing html files
