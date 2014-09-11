@@ -48,7 +48,6 @@ NeoBundle 'Valloric/YouCompleteMe'                  " autocompletion for anythin
 NeoBundle 'xolox/vim-misc'                          " needed by vim-reload
 NeoBundle 'xolox/vim-reload'                        " automatically reloads edited vim scripts
 NeoBundle 'xolox/vim-notes'
-NeoBundle 'edkolev/tmuxline.vim'
 "NeoBundle 'ervandew/supertab'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'embear/vim-localvimrc'                   " localvimrc files .lvimrc
@@ -56,7 +55,7 @@ NeoBundle 'inside/vim-search-pulse'                 " mark word under cursor
 NeoBundle 'airblade/vim-gitgutter'                  " show modified lines (requires git)
 NeoBundle 'kana/vim-textobj-user'                   " required by vim-textobj-python
 NeoBundle 'bps/vim-textobj-python'                  " text objects for python
-
+NeoBundle 'tsukkee/unite-tag'                       " support for tag search
 
 NeoBundleCheck
 "preferred editor setup {{{1
