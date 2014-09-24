@@ -1,10 +1,11 @@
-# plugins
-bundle/ 
 # dictionary data  
 spell/      
 # swp directory
 swp/
 # vim temp files
 *.swp       
+# plugins dir
+*bundle
 # some strange stuff
-.netrwhist  
+.DS_Store
+*.netrwhist
