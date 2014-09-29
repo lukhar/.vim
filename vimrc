@@ -56,6 +56,7 @@ NeoBundle 'airblade/vim-gitgutter'                  " show modified lines (requi
 NeoBundle 'kana/vim-textobj-user'                   " required by vim-textobj-python
 NeoBundle 'bps/vim-textobj-python'                  " text objects for python
 NeoBundle 'tsukkee/unite-tag'                       " support for tag search
+NeoBundle 'derekwyatt/vim-scala'
 
 NeoBundleCheck
 "preferred editor setup {{{1
