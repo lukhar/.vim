@@ -57,6 +57,7 @@ NeoBundle 'kana/vim-textobj-user'                   " required by vim-textobj-py
 NeoBundle 'bps/vim-textobj-python'                  " text objects for python
 NeoBundle 'tsukkee/unite-tag'                       " support for tag search
 NeoBundle 'derekwyatt/vim-scala'
+NeoBundle 'neilagabriel/vim-geeknote'               " geeknote test
 
 NeoBundleCheck
 "preferred editor setup {{{1
