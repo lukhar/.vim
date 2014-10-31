@@ -5,7 +5,7 @@ set nocompatible
 
 "NeoBundle initialization {{{1
 set runtimepath+=~/.vim/bundle/neobundle.vim/
-call neobundle#rc(expand('~/.vim/bundle/'))
+call neobundle#begin(expand('~/.vim/bundle/'))
 "Repositories {{{1
 " Let NeoBundle manage NeoBundle
 NeoBundleFetch 'Shougo/neobundle.vim'
@@ -60,6 +60,7 @@ NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'neilagabriel/vim-geeknote'               " geeknote test
 
 NeoBundleCheck
+call neobundle#end()
 "preferred editor setup {{{1
 "properties {{{2
 " set powerline Fonts
