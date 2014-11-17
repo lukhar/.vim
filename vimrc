@@ -51,13 +51,15 @@ NeoBundle 'xolox/vim-notes'
 "NeoBundle 'ervandew/supertab'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'embear/vim-localvimrc'                   " localvimrc files .lvimrc
-NeoBundle 'inside/vim-search-pulse'                 " mark word under cursor
+"NeoBundle 'inside/vim-search-pulse'                 " mark word under cursor
 NeoBundle 'airblade/vim-gitgutter'                  " show modified lines (requires git)
 NeoBundle 'kana/vim-textobj-user'                   " required by vim-textobj-python
 NeoBundle 'bps/vim-textobj-python'                  " text objects for python
-"NeoBundle 'tsukkee/unite-tag'                       " support for tag search
+"NeoBundle 'tsukkee/unite-tag'                      " support for tag search
 NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'neilagabriel/vim-geeknote'               " geeknote test
+NeoBundle 'junegunn/vim-pseudocl'                   " required by vim-oblique
+NeoBundle 'junegunn/vim-oblique'
 
 NeoBundleCheck
 call neobundle#end()
@@ -145,10 +147,6 @@ cmap w!! w !sudo tee > /dev/null %
 
 " remove trailing spaces
 nmap _$ :%s/\v\s+$//e<CR>
-
-" Below mappings disable highlighting for last search pattern
-" by hitting <enter>
-nnoremap <CR> :noh<CR>
 
 " Set current working directory to current file
 nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
