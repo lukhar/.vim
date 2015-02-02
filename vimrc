@@ -61,6 +61,7 @@ NeoBundle 'neilagabriel/vim-geeknote'               " geeknote test
 NeoBundle 'junegunn/vim-pseudocl'                   " required by vim-oblique
 NeoBundle 'junegunn/vim-oblique'
 NeoBundle 'honza/dockerfile.vim'
+NeoBundle 'rodjek/vim-puppet'                       " puppet file-type support
 
 NeoBundleCheck
 call neobundle#end()
