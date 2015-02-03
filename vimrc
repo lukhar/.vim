@@ -167,6 +167,12 @@ nnoremap <leader>S ^vg_y:execute @@<cr>:echo 'Sourced line.'<cr>
 " more vim-like behavior
 nnoremap Y y$
 
+" Maps Alt-[h,j,k,l] to resizing a window split
+map <silent> <A-h> <C-w>2<
+map <silent> <A-j> <C-W>2-
+map <silent> <A-k> <C-W>2+
+map <silent> <A-l> <C-w>2>
+
 "plugin settings {{{1
 "xml {{{2
 let xml_use_xhtml = 1           " enable plugin when editing html files
