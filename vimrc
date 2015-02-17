@@ -197,7 +197,6 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 "easytags {{{2
 "let g:easytags_updatetime_warn=0  "silence warning about to low update value
 "Unite {{{2
-let g:unite_source_history_yank_enable = 1
 let g:unite_source_rec_max_cache_files = 2000
 
 nnoremap <leader>t :<C-u>Unite -no-split -buffer-name=files   -start-insert file_rec/async<cr>
