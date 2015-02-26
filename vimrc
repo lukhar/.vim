@@ -6,7 +6,7 @@ set nocompatible
 "NeoBundle initialization {{{1
 set runtimepath+=~/.vim/bundle/neobundle.vim/
 call neobundle#begin(expand('~/.vim/bundle/'))
-"Repositories {{{1
+"repositories {{{1
 " Let NeoBundle manage NeoBundle
 NeoBundleFetch 'Shougo/neobundle.vim'
 
@@ -203,7 +203,6 @@ nnoremap <leader>t :<C-u>Unite -no-split -buffer-name=files   -start-insert file
 nnoremap <leader>f :<C-u>Unite -no-split -buffer-name=files   -auto-preview   -start-insert file<cr>
 nnoremap <leader>h :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
 nnoremap <leader>o :<C-u>Unite -no-split -buffer-name=outline -start-insert outline<cr>
-nnoremap <leader>y :<C-u>Unite -no-split -buffer-name=yank history/yank<cr>
 nnoremap <leader>e :<C-u>Unite -no-split -buffer-name=files -start-insert buffer<cr>
 nnoremap <leader>s :<C-u>Unite grep:.<cr>
 
