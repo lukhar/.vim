@@ -199,11 +199,11 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 "Unite {{{2
 let g:unite_source_rec_max_cache_files = 2000
 
-nnoremap <leader>t :<C-u>Unite -no-split -buffer-name=files   -start-insert file_rec/async<cr>
-nnoremap <leader>f :<C-u>Unite -no-split -buffer-name=files   -auto-preview   -start-insert file<cr>
-nnoremap <leader>h :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
-nnoremap <leader>o :<C-u>Unite -no-split -buffer-name=outline -start-insert outline<cr>
-nnoremap <leader>e :<C-u>Unite -no-split -buffer-name=files -start-insert buffer<cr>
+nnoremap <leader>t :<C-u>Unite -no-split -buffer-name=files   -start-insert -no-resize file_rec/async<cr>
+nnoremap <leader>f :<C-u>Unite -no-split -buffer-name=files   -auto-preview -start-insert -no-resize file<cr>
+nnoremap <leader>h :<C-u>Unite -no-split -buffer-name=mru     -start-insert -no-resize file_mru<cr>
+nnoremap <leader>o :<C-u>Unite -no-split -buffer-name=outline -start-insert -no-resize outline<cr>
+nnoremap <leader>e :<C-u>Unite -no-split -buffer-name=files -start-insert -no-resize buffer<cr>
 nnoremap <leader>s :<C-u>Unite grep:.<cr>
 
 "hack for removing unite buffers form jumplist (UniteResume) doesn't work because of that"
