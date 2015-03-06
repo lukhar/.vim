@@ -499,23 +499,23 @@ import pudb; pudb.set_trace()
 endsnippet
 
 snippet ae "Assert equal" b
-self.assertEqual(${1:first},${2:second})
+assert_equal(${1:first},${2:second})
 endsnippet
 
 snippet at "Assert True" b
-self.assertTrue(${0:exp})
+assert_true(${0:exp})
 endsnippet
 
 snippet af "Assert False" b
-self.assertFalse(${1:expression})
+assert_false(${1:expression})
 endsnippet
 
 snippet aae "Assert almost equal" b
-self.assertAlmostEqual(${1:first},${2:second})
+assert_almost_equal(${1:first},${2:second})
 endsnippet
 
 snippet ar "Assert raises" b
-self.assertRaises(${1:exception}, ${2:func}${3/.+/, /}${3:arguments})
+assert_raises(${1:exception}, ${2:func}${3/.+/, /}${3:arguments})
 endsnippet
 
 

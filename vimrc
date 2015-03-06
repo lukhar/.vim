@@ -61,6 +61,7 @@ NeoBundle 'neilagabriel/vim-geeknote'               " geeknote test
 NeoBundle 'junegunn/vim-pseudocl'                   " required by vim-oblique
 NeoBundle 'junegunn/vim-oblique'
 NeoBundle 'honza/dockerfile.vim'
+NeoBundle 'honza/vim-snippets'                      " default snippets for UltiSnips
 NeoBundle 'rodjek/vim-puppet'                       " puppet file-type support
 
 NeoBundleCheck
@@ -189,7 +190,8 @@ nmap <C-Down> ]e
 vmap <C-Up> [egv
 vmap <C-Down> ]egv
 "UltiSnips  {{{2
-let g:UltiSnipsSnippetDirectories=["customized_snippets"]
+let g:UltiSnipsSnippetsDir='~/.vim/customized_snippets'
+let g:UltiSnipsSnippetDirectories=["customized_snippets", "bundle/vim-snippets/UltiSnips"]
 
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
