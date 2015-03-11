@@ -44,7 +44,6 @@ NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'terryma/vim-expand-region'
 NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'Valloric/YouCompleteMe'                  " autocompletion for anything else
-"NeoBundle 'xolox/vim-easytags'                     " automatic tags generation
 NeoBundle 'xolox/vim-misc'                          " needed by vim-reload
 NeoBundle 'xolox/vim-reload'                        " automatically reloads edited vim scripts
 NeoBundle 'xolox/vim-notes'
@@ -196,8 +195,6 @@ let g:UltiSnipsSnippetDirectories=["customized_snippets", "bundle/vim-snippets/U
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-"easytags {{{2
-"let g:easytags_updatetime_warn=0  "silence warning about to low update value
 "Unite {{{2
 let g:unite_source_rec_max_cache_files = 2000
 
