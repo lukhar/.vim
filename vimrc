@@ -153,6 +153,9 @@ nmap _$ :%s/\v\s+$//e<CR>
 " Set current working directory to current file
 nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
 
+" Set current working directory to git project root (requires fugitive)
+nnoremap ,cp :Glcd<CR>:pwd<CR>
+
 " copy paste mappings
 vnoremap <C-Insert> "+y
 map <S-Insert> "+gP
@@ -195,6 +198,9 @@ let g:UltiSnipsSnippetDirectories=["customized_snippets", "bundle/vim-snippets/U
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+
+let g:ultisnips_python_quoting_style="single"
+let g:ultisnips_python_style="sphinx"
 "Unite {{{2
 let g:unite_source_rec_max_cache_files = 2000
 
