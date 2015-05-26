@@ -170,6 +170,9 @@ nnoremap <leader>S ^vg_y:execute @@<cr>:echo 'Sourced line.'<cr>
 " more vim-like behavior
 nnoremap Y y$
 
+" map jk to esc experimental
+inoremap jk <Esc>
+
 " Maps Alt-[h,j,k,l] to resizing a window split
 map <silent> <A-h> <C-w>2<
 map <silent> <A-j> <C-W>2-
