@@ -256,7 +256,11 @@ nnoremap <silent> <F9> :TagbarToggle<CR>
 " solarized {{{2
 call togglebg#map("<F10>")
 " notes {{{2
-let g:notes_directories = ['~/Documents/Shared/Notes']
+if has("gui_macvim")
+    let g:notes_directories = ['~/Documents/shared/notes']
+else
+    let g:notes_directories = ['~/documents/shared/notes']
+endif
 let g:notes_suffix = '.note'
 " YouCompleteMe {{{2
 let g:ycm_filetype_blacklist = {
