@@ -282,16 +282,11 @@ let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '⚠'
 let g:syntastic_style_error_symbol = '☹'
 let g:syntastic_style_warning_symbol = '☹'
-let g:syntastic_python_checkers = ['pylint', 'pep8', 'pyflakes']
 let g:syntastic_aggregate_errors = 1
-let g:syntastic_python_pylint_exec = 'pylint2'
 let g:syntastic_tex_checkers = ['chktex']
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-" disable for Scala
-let g:syntastic_ignore_files = ['\m\c\.h$', '\m\.sbt$']
-let g:syntastic_scala_checkers = ['']
 " SuperTab {{{2
 let g:SuperTabLongestHighlight = 0
 let g:SuperTabDefaultCompletionType = "context"
