@@ -62,6 +62,7 @@ NeoBundle 'junegunn/vim-oblique'
 NeoBundle 'honza/dockerfile.vim'
 NeoBundle 'honza/vim-snippets'                      " default snippets for UltiSnips
 NeoBundle 'rodjek/vim-puppet'                       " puppet file-type support
+NeoBundle 'tfnico/vim-gradle'                       " gradle syntax
 
 NeoBundleCheck
 call neobundle#end()
@@ -285,8 +286,9 @@ let g:syntastic_python_checkers = ['pylint', 'pep8', 'pyflakes']
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_python_pylint_exec = 'pylint2'
 let g:syntastic_tex_checkers = ['chktex']
-
-autocmd FileType python nnoremap <buffer> <silent> <F12> :SyntasticCheck<CR>
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 " SuperTab {{{2
 let g:SuperTabLongestHighlight = 0
 let g:SuperTabDefaultCompletionType = "context"
