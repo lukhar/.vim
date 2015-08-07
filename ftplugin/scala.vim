@@ -1,7 +1,5 @@
 " syntastic
-let g:syntastic_scala_scalastyle_jar="/usr/local/Cellar/scalastyle/0.7.0/libexec/scalastyle_2.11-0.7.0-batch.jar"
-let g:syntastic_scala_scalastyle_config_file="~/.config/scala/scalastyle_config.xml"
-let g:syntastic_scala_checkers=['scalastyle']
+let g:syntastic_scala_checkers=['']
 
 " scala formatter
 set formatprg=scalariform\ -f\ -q\ --stdin\ --stdout
