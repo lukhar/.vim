@@ -13,20 +13,25 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Recommended to install
 " after install, turn shell ~/.vim/bundle/vimproc, (n,g)make -f our_machines_makefile
 NeoBundle 'Shougo/vimproc', {
-      \ 'build' : {
-      \     'windows' : 'make -f make_mingw32.mak',
-      \     'cygwin' : 'make -f make_cygwin.mak',
-      \     'mac' : 'make -f make_mac.mak',
-      \     'unix' : 'make -f make_unix.mak',
-      \    },
-      \ }
+    \ 'build' : {
+    \     'windows' : 'make -f make_mingw32.mak',
+    \     'cygwin' : 'make -f make_cygwin.mak',
+    \     'mac' : 'make -f make_mac.mak',
+    \     'unix' : 'make -f make_unix.mak',
+    \    },
+    \ }
 
 NeoBundle 'jwhitley/vim-colors-solarized'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'christoomey/vim-tmux-navigator'
 "NeoBundle 'davidhalter/jedi-vim'                    " python auto completion
 NeoBundle 'Shougo/unite-outline'
-NeoBundle 'majutsushi/tagbar'
+NeoBundle 'majutsushi/tagbar', {
+    \ 'lazy': 1,
+    \ 'autoload' : {
+    \     'filetypes' : 'all',
+    \    },
+    \ }
 NeoBundle 'vim-scripts/matchit.zip'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'othree/xml.vim'
@@ -34,7 +39,13 @@ NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'SirVer/ultisnips'
+NeoBundle 'SirVer/ultisnips', {
+    \ 'lazy': 1,
+    \ 'depends': 'honza/vim-snippets',
+    \ 'autoload' : {
+    \     'filetypes' : 'all',
+    \    },
+    \ }
 NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'tpope/vim-abolish'
 NeoBundle 'tpope/vim-fugitive'
@@ -43,26 +54,39 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'terryma/vim-expand-region'
 NeoBundle 'terryma/vim-multiple-cursors'
-NeoBundle 'Valloric/YouCompleteMe'                  " autocompletion for anything else
-NeoBundle 'xolox/vim-misc'                          " needed by vim-reload
-NeoBundle 'xolox/vim-reload'                        " automatically reloads edited vim scripts
+NeoBundle 'Valloric/YouCompleteMe', {
+    \ 'lazy': 1,
+    \ 'autoload' : {
+    \     'filetypes' : 'all',
+    \    },
+    \ }
+NeoBundle 'xolox/vim-reload', {
+    \ 'depends': 'xolox/vim-misc',
+    \ }
 NeoBundle 'xolox/vim-notes'
-"NeoBundle 'ervandew/supertab'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'embear/vim-localvimrc'                   " localvimrc files .lvimrc
-"NeoBundle 'inside/vim-search-pulse'                 " mark word under cursor
-NeoBundle 'airblade/vim-gitgutter'                  " show modified lines (requires git)
-NeoBundle 'kana/vim-textobj-user'                   " required by vim-textobj-python
-NeoBundle 'bps/vim-textobj-python'                  " text objects for python
-"NeoBundle 'tsukkee/unite-tag'                      " support for tag search
+NeoBundle 'scrooloose/syntastic', {
+    \ 'lazy': 1,
+    \ 'autoload' : {
+    \     'filetypes' : 'all',
+    \    },
+    \ }
+NeoBundle 'embear/vim-localvimrc'
+NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'bps/vim-textobj-python', {
+    \ 'lazy': 1,
+    \ 'depends': 'kana/vim-textobj-user',
+    \ 'autoload' : {
+    \     'filetypes' : 'python',
+    \    },
+    \ }
 NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'neilagabriel/vim-geeknote'               " geeknote test
-NeoBundle 'junegunn/vim-pseudocl'                   " required by vim-oblique
-NeoBundle 'junegunn/vim-oblique'
+NeoBundle 'junegunn/vim-oblique', {
+    \ 'depends': 'junegunn/vim-pseudocl',
+    \ }
 NeoBundle 'honza/dockerfile.vim'
-NeoBundle 'honza/vim-snippets'                      " default snippets for UltiSnips
-NeoBundle 'rodjek/vim-puppet'                       " puppet file-type support
-NeoBundle 'tfnico/vim-gradle'                       " gradle syntax
+NeoBundle 'rodjek/vim-puppet'
+NeoBundle 'tfnico/vim-gradle'
 
 NeoBundleCheck
 call neobundle#end()
