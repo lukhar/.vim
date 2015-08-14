@@ -185,7 +185,7 @@ map <silent> <A-l> <C-w>2>
 let xml_use_xhtml = 1           " enable plugin when editing html files
 "delimitMate {{{2
 let b:delimitMate_expand_space = 1
-let b:delimitMate_expand_cr = 1
+let b:delimitMate_expand_cr = 2
 au FileType htm,html let b:delimitMate_matchpairs = '(:),[:],{:}'
 au FileType vim let b:delimitMate_quotes = "'"
 "{{{ unimpaired
