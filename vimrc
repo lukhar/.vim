@@ -245,6 +245,9 @@ if executable('ag')
   let g:unite_source_grep_default_opts = '--smart-case --nogroup --nocolor --column'
   let g:unite_source_grep_recursive_opt = ''
   let g:unite_source_grep_max_candidates = 10000
+
+  set grepprg=ag\ --vimgrep\ $*
+  set grepformat=%f:%l:%c:%m
 endif
 
 " speed up recursive file searching
