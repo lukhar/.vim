@@ -39,13 +39,8 @@ NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'SirVer/ultisnips', {
-    \ 'lazy': 1,
-    \ 'depends': 'honza/vim-snippets',
-    \ 'autoload' : {
-    \     'filetypes' : 'all',
-    \    },
-    \ }
+NeoBundle 'honza/vim-snippets'
+NeoBundle 'SirVer/ultisnips'
 NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'tpope/vim-abolish'
 NeoBundle 'tpope/vim-fugitive'
