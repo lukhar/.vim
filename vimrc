@@ -50,7 +50,7 @@ NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'terryma/vim-expand-region'
 NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'Valloric/YouCompleteMe', {
-    \ 'lazy': 1,
+    \ 'lazy': 0,
     \ 'autoload' : {
     \     'filetypes' : 'all',
     \    },
@@ -62,7 +62,7 @@ NeoBundle 'xolox/vim-notes'
 NeoBundle 'scrooloose/syntastic', {
     \ 'lazy': 1,
     \ 'autoload' : {
-    \     'filetypes' : 'all',
+    \     'filetypes' : ['all', 'scala'],
     \    },
     \ }
 NeoBundle 'embear/vim-localvimrc'
