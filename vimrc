@@ -75,13 +75,14 @@ NeoBundle 'bps/vim-textobj-python', {
     \    },
     \ }
 NeoBundle 'derekwyatt/vim-scala'
-NeoBundle 'neilagabriel/vim-geeknote'               " geeknote test
+NeoBundle 'neilagabriel/vim-geeknote'
 NeoBundle 'junegunn/vim-oblique', {
     \ 'depends': 'junegunn/vim-pseudocl',
     \ }
 NeoBundle 'honza/dockerfile.vim'
 NeoBundle 'rodjek/vim-puppet'
 NeoBundle 'tfnico/vim-gradle'
+NeoBundle 'dscleaver/sbt-quickfix'
 
 NeoBundleCheck
 call neobundle#end()
@@ -154,6 +155,9 @@ endif
 
 " automatically remove trailing whitespace characters on save
 autocmd FileType c,cpp,python,vim,js autocmd BufWritePre <buffer> :%s/\s\+$//e
+
+" tags location
+set tags=./.tags,.tags,./tags,tags
 
 " wildmenu {{{2
 if has("wildmenu")
