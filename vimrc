@@ -24,7 +24,6 @@ NeoBundle 'Shougo/vimproc', {
 NeoBundle 'jwhitley/vim-colors-solarized'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'christoomey/vim-tmux-navigator'
-"NeoBundle 'davidhalter/jedi-vim'                    " python auto completion
 NeoBundle 'Shougo/unite-outline'
 NeoBundle 'majutsushi/tagbar', {
     \ 'lazy': 1,
@@ -36,7 +35,6 @@ NeoBundle 'vim-scripts/matchit.zip'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'othree/xml.vim'
 NeoBundle 'Raimondi/delimitMate'
-NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'honza/vim-snippets'
@@ -48,6 +46,7 @@ NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'tpope/vim-obsession'
+NeoBundle 'tpope/vim-vinegar'
 NeoBundle 'terryma/vim-expand-region'
 NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'Valloric/YouCompleteMe', {
@@ -277,10 +276,6 @@ let g:jedi#auto_vim_configuration = 0   " disable vim auto configuration
 let g:jedi#use_tabs_not_buffers = 0     " do go to in buffers
 let g:jedi#popup_on_dot = 1             " auto popup completion
 let g:jedi#popup_select_first = 1
-" NERDTree {{{2
-nnoremap <silent> <F1> :NERDTreeToggle<CR>
-nnoremap <silent> <F2> :NERDTreeFind<CR>
-let NERDTreeIgnore = ['\.pyc$'] " ignore .pyc files
 " TagBar {{{2
 nnoremap <silent> <F9> :TagbarToggle<CR>
 " solarized {{{2
