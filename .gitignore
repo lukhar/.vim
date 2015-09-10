@@ -6,6 +6,8 @@ swp/
 *.swp       
 # plugins dir
 *bundle
+*plugged
 # some strange stuff
 .DS_Store
 *.netrwhist
+.Rhistory
