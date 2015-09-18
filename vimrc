@@ -58,7 +58,6 @@ NeoBundle 'Valloric/YouCompleteMe', {
 NeoBundle 'xolox/vim-reload', {
     \ 'depends': 'xolox/vim-misc',
     \ }
-NeoBundle 'xolox/vim-notes'
 NeoBundle 'scrooloose/syntastic', {
     \ 'lazy': 1,
     \ 'autoload' : {
@@ -75,7 +74,6 @@ NeoBundle 'bps/vim-textobj-python', {
     \    },
     \ }
 NeoBundle 'derekwyatt/vim-scala'
-NeoBundle 'neilagabriel/vim-geeknote'
 NeoBundle 'junegunn/vim-oblique', {
     \ 'depends': 'junegunn/vim-pseudocl',
     \ }
@@ -282,23 +280,12 @@ let g:jedi#popup_select_first = 1
 nnoremap <silent> <F9> :TagbarToggle<CR>
 " solarized {{{2
 call togglebg#map("<F10>")
-" notes {{{2
-if has("gui_macvim")
-    let g:notes_directories = ['~/Documents/shared/notes']
-else
-    let g:notes_directories = ['~/documents/shared/notes']
-endif
-let g:notes_suffix = '.note'
 " YouCompleteMe {{{2
 let g:ycm_filetype_blacklist = {
     \ 'tagbar' : 1,
     \ 'qf' : 1,
-    \ 'notes' : 1,
     \ 'markdown' : 1,
     \ 'unite' : 1,
-    \ 'text' : 1,
-    \ 'vimwiki' : 1,
-    \ 'pandoc' : 1,
     \}
 let g:ycm_auto_trigger = 1
 let g:ycm_key_list_previous_completion = ['<S-TAB>']
