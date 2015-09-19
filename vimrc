@@ -265,6 +265,16 @@ endif
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
 "tmux-navigator {{{2
+augroup navigator
+  autocmd!
+  autocmd FileType netrw call s:reset_netrw_keys()
+augroup END
+
+function! s:reset_netrw_keys() abort
+  nmap <buffer> <silent> <c-h> <Plug>NetrwHideEdit
+  nmap <buffer> <silent> <c-l> <Plug>NetrwRefresh
+endfunction
+
 let g:tmux_navigator_no_mappings = 1
 nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
 nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
