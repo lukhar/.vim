@@ -36,7 +36,6 @@ NeoBundle 'mattn/emmet-vim'
 NeoBundle 'othree/xml.vim'
 NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'honza/vim-snippets'
 NeoBundle 'SirVer/ultisnips'
 NeoBundle 'terryma/vim-multiple-cursors'
@@ -81,6 +80,9 @@ NeoBundle 'honza/dockerfile.vim'
 NeoBundle 'rodjek/vim-puppet'
 NeoBundle 'tfnico/vim-gradle'
 NeoBundle 'dscleaver/sbt-quickfix'
+NeoBundle 'vim-pandoc/vim-pandoc', {
+    \ 'depends': 'vim-pandoc/vim-pandoc-syntax',
+    \ }
 
 NeoBundleCheck
 call neobundle#end()
@@ -231,7 +233,7 @@ let g:unite_source_rec_max_cache_files = 2000
 
 nnoremap <leader>t :<C-u>Unite -no-split -buffer-name=files   -start-insert -no-resize file_rec/async<cr>
 nnoremap <leader>f :<C-u>Unite -no-split -buffer-name=files   -auto-preview -start-insert -no-resize file<cr>
-nnoremap <leader>h :<C-u>Unite -no-split -buffer-name=mru     -start-insert -no-resize file_mru<cr>
+nnoremap <leader>n :<C-u>Unite -no-split -buffer-name=notes   -start-insert -no-resize file_rec:$NOTES<cr>
 nnoremap <leader>o :<C-u>Unite -no-split -buffer-name=outline -start-insert -no-resize outline<cr>
 nnoremap <leader>e :<C-u>Unite -no-split -buffer-name=files -start-insert -no-resize buffer<cr>
 nnoremap <leader>s :<C-u>Unite grep:.<cr>
@@ -294,7 +296,6 @@ call togglebg#map("<F10>")
 let g:ycm_filetype_blacklist = {
     \ 'tagbar' : 1,
     \ 'qf' : 1,
-    \ 'markdown' : 1,
     \ 'unite' : 1,
     \}
 let g:ycm_auto_trigger = 1
@@ -316,6 +317,6 @@ let g:SuperTabDefaultCompletionType = "context"
 " local-vimrc {{{2
 let g:localvimrc_ask = 0
 let g:localvimrc_sandbox = 0
-" pulse {{{2
-let g:vim_search_pulse_mode = 'pattern'
-let g:vim_search_pulse_duration = 400
+" pandoc {{{2
+let g:pandoc#folding#fdc = 0
+let g:pandoc#spell#enabled = 0
