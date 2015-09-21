@@ -282,12 +282,6 @@ nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
 nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
-" jedi{{{2
-let g:jedi#show_call_signatures = 0
-let g:jedi#auto_vim_configuration = 0   " disable vim auto configuration
-let g:jedi#use_tabs_not_buffers = 0     " do go to in buffers
-let g:jedi#popup_on_dot = 1             " auto popup completion
-let g:jedi#popup_select_first = 1
 " TagBar {{{2
 nnoremap <silent> <F9> :TagbarToggle<CR>
 " solarized {{{2
@@ -311,9 +305,6 @@ let g:syntastic_tex_checkers = ['chktex']
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-" SuperTab {{{2
-let g:SuperTabLongestHighlight = 0
-let g:SuperTabDefaultCompletionType = "context"
 " local-vimrc {{{2
 let g:localvimrc_ask = 0
 let g:localvimrc_sandbox = 0
