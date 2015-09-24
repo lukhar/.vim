@@ -73,9 +73,8 @@ NeoBundle 'bps/vim-textobj-python', {
     \    },
     \ }
 NeoBundle 'derekwyatt/vim-scala'
-NeoBundle 'junegunn/vim-oblique', {
-    \ 'depends': 'junegunn/vim-pseudocl',
-    \ }
+NeoBundle 'lsdr/monokai'
+NeoBundle 'pgdouyon/vim-evanesco'
 NeoBundle 'honza/dockerfile.vim'
 NeoBundle 'rodjek/vim-puppet'
 NeoBundle 'tfnico/vim-gradle'
