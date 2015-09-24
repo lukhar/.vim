@@ -82,6 +82,7 @@ NeoBundle 'dscleaver/sbt-quickfix'
 NeoBundle 'vim-pandoc/vim-pandoc', {
     \ 'depends': 'vim-pandoc/vim-pandoc-syntax',
     \ }
+NeoBundle 'ryanoasis/vim-devicons'
 
 NeoBundleCheck
 call neobundle#end()
