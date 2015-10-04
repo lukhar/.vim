@@ -1,2 +1,2 @@
 " syntastic
-let g:syntastic_scala_checkers=['']
+let g:syntastic_java_checkers=['']
