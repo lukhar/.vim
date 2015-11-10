@@ -301,8 +301,8 @@ nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 " syntastic {{{2
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '⚠'
-let g:syntastic_style_error_symbol = '☹'
-let g:syntastic_style_warning_symbol = '☹'
+let g:syntastic_style_error_symbol = '⚠'
+let g:syntastic_style_warning_symbol = '⚠'
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_tex_checkers = ['chktex']
 let g:syntastic_always_populate_loc_list = 1
