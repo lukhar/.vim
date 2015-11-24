@@ -314,3 +314,8 @@ let g:localvimrc_sandbox = 0
 " pandoc {{{2
 let g:pandoc#folding#fdc = 0
 let g:pandoc#spell#enabled = 0
+" opengrok {{{2
+let g:opengrok_jar = '/opt/opengrok/lib/opengrok.jar'
+let g:opengrok_ctags = '/usr/local/bin/ctags'
+" netrw {{{2
+let g:netrw_liststyle = 3
