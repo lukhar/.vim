@@ -4,88 +4,41 @@
 set nocompatible
 
 "NeoBundle initialization {{{1
-set runtimepath+=~/.vim/bundle/neobundle.vim/
-call neobundle#begin(expand('~/.vim/bundle/'))
-"repositories {{{1
-" Let NeoBundle manage NeoBundle
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-" Recommended to install
-" after install, turn shell ~/.vim/bundle/vimproc, (n,g)make -f our_machines_makefile
-NeoBundle 'Shougo/vimproc', {
-    \ 'build' : {
-    \     'windows' : 'make -f make_mingw32.mak',
-    \     'cygwin' : 'make -f make_cygwin.mak',
-    \     'mac' : 'make -f make_mac.mak',
-    \     'unix' : 'make -f make_unix.mak',
-    \    },
-    \ }
-
-NeoBundle 'jwhitley/vim-colors-solarized'
-NeoBundle 'bling/vim-airline'
-NeoBundle 'christoomey/vim-tmux-navigator'
-NeoBundle 'Shougo/unite-outline'
-NeoBundle 'majutsushi/tagbar', {
-    \ 'lazy': 1,
-    \ 'autoload' : {
-    \     'filetypes' : 'all',
-    \    },
-    \ }
-NeoBundle 'vim-scripts/matchit.zip'
-NeoBundle 'mattn/emmet-vim'
-NeoBundle 'othree/xml.vim'
-NeoBundle 'Raimondi/delimitMate'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'honza/vim-snippets'
-NeoBundle 'SirVer/ultisnips'
-NeoBundle 'terryma/vim-multiple-cursors'
-NeoBundle 'tpope/vim-abolish'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'tpope/vim-repeat'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'tpope/vim-unimpaired'
-NeoBundle 'tpope/vim-obsession'
-NeoBundle 'tpope/vim-vinegar'
-NeoBundle 'terryma/vim-expand-region'
-NeoBundle 'terryma/vim-multiple-cursors'
-NeoBundle 'Valloric/YouCompleteMe', {
-    \ 'lazy': 0,
-    \ 'autoload' : {
-    \     'filetypes' : 'all',
-    \    },
-    \ }
-NeoBundle 'xolox/vim-reload', {
-    \ 'depends': 'xolox/vim-misc',
-    \ }
-NeoBundle 'scrooloose/syntastic', {
-    \ 'lazy': 1,
-    \ 'autoload' : {
-    \     'filetypes' : ['all', 'scala'],
-    \    },
-    \ }
-NeoBundle 'embear/vim-localvimrc'
-NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'bps/vim-textobj-python', {
-    \ 'lazy': 1,
-    \ 'depends': 'kana/vim-textobj-user',
-    \ 'autoload' : {
-    \     'filetypes' : 'python',
-    \    },
-    \ }
-NeoBundle 'derekwyatt/vim-scala'
-NeoBundle 'lsdr/monokai'
-NeoBundle 'pgdouyon/vim-evanesco'
-NeoBundle 'honza/dockerfile.vim'
-NeoBundle 'rodjek/vim-puppet'
-NeoBundle 'tfnico/vim-gradle'
-NeoBundle 'dscleaver/sbt-quickfix'
-NeoBundle 'vim-pandoc/vim-pandoc', {
-    \ 'depends': 'vim-pandoc/vim-pandoc-syntax',
-    \ }
-NeoBundle 'ryanoasis/vim-devicons'
-
-NeoBundleCheck
-call neobundle#end()
+call plug#begin('~/.vim/plugged')
+Plug 'Raimondi/delimitMate'
+Plug 'Shougo/unite.vim' | Plug 'Shougo/unite-outline'
+Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'airblade/vim-gitgutter'
+Plug 'asenac/vim-opengrok'
+Plug 'benekastah/neomake'
+Plug 'bling/vim-airline'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
+Plug 'embear/vim-localvimrc'
+Plug 'honza/dockerfile.vim'
+Plug 'jwhitley/vim-colors-solarized'
+Plug 'kana/vim-textobj-user' | Plug 'bps/vim-textobj-python'
+Plug 'lsdr/monokai'
+Plug 'majutsushi/tagbar'
+Plug 'mattn/emmet-vim'
+Plug 'othree/xml.vim'
+Plug 'pgdouyon/vim-evanesco'
+Plug 'rodjek/vim-puppet'
+Plug 'ryanoasis/vim-devicons'
+Plug 'tfnico/vim-gradle'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-obsession'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-vinegar'
+Plug 'vim-pandoc/vim-pandoc-syntax' | Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-scripts/matchit.zip'
+Plug 'xolox/vim-misc' | Plug 'xolox/vim-reload'
+call plug#end()
 "preferred editor setup {{{1
 "properties {{{2
 " set powerline Fonts

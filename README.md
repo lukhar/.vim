@@ -1,4 +1,4 @@
 .vim
 ====
 
-my vim configuration
+use :PlugInstall on first run.
