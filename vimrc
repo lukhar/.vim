@@ -3,7 +3,7 @@
 " This must be first, because it changes other options as side effect
 set nocompatible
 
-"NeoBundle initialization {{{1
+"repositories {{{1
 call plug#begin('~/.vim/plugged')
 Plug 'Raimondi/delimitMate'
 Plug 'Shougo/unite.vim' | Plug 'Shougo/unite-outline'
