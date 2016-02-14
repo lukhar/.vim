@@ -213,8 +213,6 @@ nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 
-" TagBar {{{2
-nnoremap <silent> <F9> :TagbarToggle<CR>
 " solarized {{{2
 call togglebg#map("<F10>")
 " YouCompleteMe {{{2
@@ -227,31 +225,31 @@ let g:ycm_auto_trigger = 1
 let g:ycm_key_detailed_diagnostics = '' " disable default mapping
 let g:ycm_key_list_previous_completion = ['<S-TAB>']
 nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
-" syntastic {{{2
-let g:syntastic_error_symbol = '✗'
-let g:syntastic_warning_symbol = '⚠'
-let g:syntastic_style_error_symbol = '⚠'
-let g:syntastic_style_warning_symbol = '⚠'
-let g:syntastic_aggregate_errors = 1
-let g:syntastic_tex_checkers = ['chktex']
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
 " local-vimrc {{{2
 let g:localvimrc_ask = 0
 let g:localvimrc_sandbox = 0
+" Neomake {{{2
+autocmd! BufWritePost * Neomake
+let g:neomake_error_sign = {
+    \ 'text': '✗',
+    \ }
+let g:neomake_warning_sign = {
+    \ 'text': '⚠',
+    \ }
 " pandoc {{{2
 let g:pandoc#folding#fdc = 0
 let g:pandoc#spell#enabled = 0
-" opengrok {{{2
-let g:opengrok_jar = '/opt/opengrok/lib/opengrok.jar'
-let g:opengrok_ctags = '/usr/local/bin/ctags'
-
-nnoremap <leader>d :OgSearch d<CR><CR>
-nnoremap <leader>r :OgSearch r<CR><CR>
-nnoremap <leader>p :OgSearch p<CR><CR>
+" TagBar {{{2
+nnoremap <silent> <F9> :TagbarToggle<CR>
 " netrw {{{2
 let g:netrw_liststyle = 3
 " gutentags {{{2
 set statusline+=%{gutentags#statusline()}
 let g:gutentags_cache_dir = '~/.cache/gutentags'
+" scripts {{{1
+xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+
+function! ExecuteMacroOverVisualRange()
+    echo "@".getcmdline()
+      execute ":'<,'>normal @".nr2char(getchar())
+    endfunction
