@@ -94,11 +94,16 @@ syntax on
 set completeopt=menuone,longest         " get rid of pop up preview
 
 set pumheight=15                        " set pop up menu to have fixed length
+
 " workaround to fix delay when entering insert mode with O
 set timeout timeoutlen=1000 ttimeoutlen=100
 
 " write all temporary files into one directory
-set directory=$HOME/.vim/swp//
+set directory=$HOME/.vim/swp/
+
+" undo history
+set undofile
+set undodir=$HOME/.cache/vim/undo/
 
 " faster macro execution
 set lazyredraw
