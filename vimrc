@@ -248,6 +248,7 @@ let g:pandoc#spell#enabled = 0
 nnoremap <silent> <F9> :TagbarToggle<CR>
 " netrw {{{2
 let g:netrw_liststyle = 3
+let g:netrw_localrmdir='rm -r'
 " gutentags {{{2
 set statusline+=%{gutentags#statusline()}
 let g:gutentags_cache_dir = '~/.cache/gutentags'
