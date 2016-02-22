@@ -251,6 +251,7 @@ let g:netrw_liststyle = 3
 let g:netrw_localrmdir='rm -r'
 " gutentags {{{2
 set statusline+=%{gutentags#statusline()}
+let g:gutentags_enabled = 0
 let g:gutentags_cache_dir = '~/.cache/gutentags'
 " scripts {{{1
 xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
