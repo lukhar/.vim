@@ -35,6 +35,7 @@ Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
@@ -183,7 +184,6 @@ nmap <C-Down> ]e
 vmap <C-Up> [egv
 vmap <C-Down> ]egv
 "UltiSnips  {{{2
-let g:UltiSnipsSnippetsDir='~/.vim/customized_snippets'
 let g:UltiSnipsSnippetDirectories=["customized_snippets", "bundle/vim-snippets/UltiSnips"]
 
 let g:UltiSnipsExpandTrigger="<c-j>"
