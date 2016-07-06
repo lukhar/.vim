@@ -195,7 +195,7 @@ let g:ultisnips_python_quoting_style="single"
 let g:ultisnips_python_style="sphinx"
 "fzf {{{2
 "let g:fzf_layout = { 'up': '40%' }
-nnoremap <leader>t :GitFiles<cr>
+nnoremap <leader>r :GFiles<cr>
 nnoremap <leader>f :Files<cr>
 nnoremap <leader>n :Files $NOTES<cr>
 nnoremap <leader>e :Tags<cr>
