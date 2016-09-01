@@ -205,6 +205,7 @@ nnoremap <leader>s :Ag<space>
 "airline {{{2
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme = 'solarized'
 "tmux-navigator {{{2
 augroup navigator
   autocmd!
