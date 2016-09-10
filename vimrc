@@ -194,6 +194,10 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:ultisnips_python_quoting_style="single"
 let g:ultisnips_python_style="sphinx"
 "fzf {{{2
+if executable('ag')
+    let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+endif
+
 "let g:fzf_layout = { 'up': '40%' }
 nnoremap <leader>r :GFiles<cr>
 nnoremap <leader>f :Files<cr>
