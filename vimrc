@@ -150,12 +150,12 @@ nnoremap ,cp :Glcd<CR>:pwd<CR>
 vnoremap <C-Insert> "+y
 map <S-Insert> "+gP
 
-" set <leader> to , instead of \
+" set <Leader> to , instead of \
 let mapleader=","
 
 " source current line or visual selection
-vnoremap <leader>S y:execute @@<cr>:echo 'Sourced selection.'<cr>
-nnoremap <leader>S ^vg_y:execute @@<cr>:echo 'Sourced line.'<cr>
+vnoremap <Leader>S y:execute @@<CR>:echo 'Sourced selection.'<CR>
+nnoremap <Leader>S ^vg_y:execute @@<CR>:echo 'Sourced line.'<CR>
 
 " more vim-like behavior
 nnoremap Y y$
@@ -199,13 +199,13 @@ if executable('ag')
 endif
 
 "let g:fzf_layout = { 'up': '40%' }
-nnoremap <leader>r :GFiles<cr>
-nnoremap <leader>f :Files<cr>
-nnoremap <leader>n :Files $NOTES<cr>
-nnoremap <leader>e :Tags<cr>
-nnoremap <leader>E :BTags<cr>
-nnoremap <leader>b :Buffers<cr>
-nnoremap <leader>s :Ag<space>
+nnoremap <Leader>r :GFiles<CR>
+nnoremap <Leader>f :Files<CR>
+nnoremap <Leader>n :Files $NOTES<CR>
+nnoremap <Leader>e :Tags<CR>
+nnoremap <Leader>E :BTags<CR>
+nnoremap <Leader>b :Buffers<CR>
+nnoremap <Leader>s :Ag<space>
 "airline {{{2
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
@@ -217,15 +217,15 @@ augroup navigator
 augroup END
 
 function! s:reset_netrw_keys() abort
-  nmap <buffer> <silent> <c-h> <Plug>NetrwHideEdit
-  nmap <buffer> <silent> <c-l> <Plug>NetrwRefresh
+  nmap <buffer> <silent> <C-h> <Plug>NetrwHideEdit
+  nmap <buffer> <silent> <C-l> <Plug>NetrwRefresh
 endfunction
 
 let g:tmux_navigator_no_mappings = 1
-nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
-nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
-nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
-nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
+nnoremap <silent> <C-h> :TmuxNavigateLeft<CR>
+nnoremap <silent> <C-j> :TmuxNavigateDown<CR>
+nnoremap <silent> <C-k> :TmuxNavigateUp<CR>
+nnoremap <silent> <C-l> :TmuxNavigateRight<CR>
 
 " solarized {{{2
 silent! call togglebg#map("<F10>")
@@ -238,7 +238,7 @@ let g:ycm_filetype_blacklist = {
 let g:ycm_auto_trigger = 1
 let g:ycm_key_detailed_diagnostics = '' " disable default mapping
 let g:ycm_key_list_previous_completion = ['<S-TAB>']
-nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nnoremap <Leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 " local-vimrc {{{2
 let g:localvimrc_ask = 0
 let g:localvimrc_sandbox = 0
