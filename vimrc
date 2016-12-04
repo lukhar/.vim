@@ -26,6 +26,7 @@ Plug 'lsdr/monokai'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'majutsushi/tagbar'
 Plug 'mattn/emmet-vim'
+Plug 'nanotech/jellybeans.vim'
 Plug 'othree/xml.vim'
 Plug 'pgdouyon/vim-evanesco'
 Plug 'rodjek/vim-puppet'
@@ -209,7 +210,6 @@ nnoremap <Leader>s :Ag<space>
 "airline {{{2
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme = 'solarized'
 "tmux-navigator {{{2
 augroup navigator
   autocmd!
