@@ -1,3 +1,7 @@
+" use jellybeans color scheme
+colorscheme jellybeans
+let g:airline_theme='dark'
+
 " scala formatter
 set formatprg=scalariform\ -f\ -q\ --stdin\ --stdout
 
