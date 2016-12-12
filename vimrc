@@ -135,6 +135,9 @@ if has("wildmenu")
     set wildmode=longest:full,full " command <Tab> completion, list matches, then longest common part, then all.
 endif"}}}
 " mappings {{{2
+" set <Leader> to , instead of \
+let mapleader=","
+
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
 
@@ -142,17 +145,14 @@ cmap w!! w !sudo tee > /dev/null %
 nmap _$ :%s/\v\s+$//e<CR>
 
 " Set current working directory to current file
-nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
+nnoremap <Leader>cd :cd %:p:h<CR>:pwd<CR>
 
 " Set current working directory to git project root (requires fugitive)
-nnoremap ,cp :Glcd<CR>:pwd<CR>
+nnoremap <Leader>cp :Glcd<CR>:pwd<CR>
 
 " copy paste mappings
 vnoremap <C-Insert> "+y
 map <S-Insert> "+gP
-
-" set <Leader> to , instead of \
-let mapleader=","
 
 " source current line or visual selection
 vnoremap <Leader>S y:execute @@<CR>:echo 'Sourced selection.'<CR>
