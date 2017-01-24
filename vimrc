@@ -106,7 +106,7 @@ set pumheight=15                        " set pop up menu to have fixed length
 set timeout timeoutlen=1000 ttimeoutlen=100
 
 " write all temporary files into one directory
-set directory=$HOME/.vim/swp/
+set directory=$HOME/.cache/vim/swp/
 
 " undo history
 set undofile
