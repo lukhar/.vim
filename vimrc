@@ -44,7 +44,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'vim-pandoc/vim-pandoc-syntax' | Plug 'vim-pandoc/vim-pandoc', { 'for': 'markdown'}
+Plug 'vim-pandoc/vim-pandoc-syntax' | Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-scripts/matchit.zip'
 Plug 'xolox/vim-misc' | Plug 'xolox/vim-reload'
 call plug#end()
