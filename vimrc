@@ -88,6 +88,7 @@ set autoread                    " auto reload changed files
 set cursorline                  " mark cursor position
 set laststatus=2                " always show status bar
 set hidden                      " unsaved buffers are hidden now (no more errors when opening new file while having unsaved changes)
+set mouse=a                     " enable scrolling
 
 filetype plugin on
 filetype on
