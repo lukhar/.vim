@@ -1,9 +1,19 @@
+function! ScalafmtFormat()
+  if &readonly == 1
+    echomsg "Current buffer is read-only. Can't scalafmt it."
+  else
+    :%! scalafmt --stdin
+  endif
+endfunction
+
+com! -buffer FormatSource :call ScalafmtFormat()
+
 " use jellybeans color scheme
 colorscheme jellybeans
 let g:airline_theme='dark'
 
 " scala formatter
-set formatprg=scalariform\ -f\ -q\ --stdin\ --stdout
+set formatexpr=call\ ScalafmtFormat()
 
 " delimitMate
 let b:delimitMate_expand_cr = 2
@@ -21,4 +31,4 @@ nnoremap <leader>t :EnType<CR>
 nnoremap <leader>d :EnDocBrowse<CR>
 nnoremap <leader>i :EnInspectType<CR>
 nnoremap <leader>I :EnInspectType<CR>
-nnoremap <leader>l :EnFormatSource<CR>
+nnoremap <leader>l :FormatSource<CR>
