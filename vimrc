@@ -21,12 +21,12 @@ Plug 'ensime/ensime-vim', { 'for': 'scala'}
 Plug 'hashivim/vim-terraform'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'justinmk/vim-dirvish'
 Plug 'jwhitley/vim-colors-solarized'
 Plug 'kana/vim-textobj-user' | Plug 'bps/vim-textobj-python'
 Plug 'lsdr/monokai'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'majutsushi/tagbar'
+Plug 'manasthakur/vim-vinegar'
 Plug 'mattn/emmet-vim'
 Plug 'nanotech/jellybeans.vim'
 Plug 'othree/xml.vim'
