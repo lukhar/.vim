@@ -183,6 +183,11 @@ map <silent> <A-l> <C-w>2>
 " numbered search results for easier navigation
 nnoremap // :g//#<Left><Left>
 
+" use ag instaed of grep
+if executable('ag')
+  set grepprg=ag\ --nogroup\ --nocolor
+endif
+
 "plugin settings {{{1
 "xml {{{2
 let xml_use_xhtml = 1           " enable plugin when editing html files
