@@ -113,8 +113,9 @@ set directory=$HOME/.cache/vim/swp/
 set undofile
 set undodir=$HOME/.cache/vim/undo/
 
-" faster macro execution
+" faster screen redraw
 set lazyredraw
+set ttyfast
 
 " retain screen position when switching the buffers
 if v:version >= 700
