@@ -13,6 +13,7 @@ Plug 'benekastah/neomake'
 Plug 'bigbrozer/vim-nagios'
 Plug 'chrisbra/vim-diff-enhanced'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'christoomey/vim-system-copy'
 Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'ekalinin/Dockerfile.vim'
@@ -141,14 +142,6 @@ endif"}}}
 " set <Leader> to <space> instead of \
 let mapleader=" "
 
-" Copy and paste to system clipboard
-vmap <Leader>y "+y
-vmap <Leader>d "+d
-nmap <Leader>p "+p
-nmap <Leader>P "+P
-vmap <Leader>p "+p
-vmap <Leader>P "+P
-
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
 
@@ -160,10 +153,6 @@ nnoremap <Leader>cd :cd %:p:h<CR>:pwd<CR>
 
 " Set current working directory to git project root (requires fugitive)
 nnoremap <Leader>cp :Glcd<CR>:pwd<CR>
-
-" copy paste mappings
-vnoremap <C-Insert> "+y
-map <S-Insert> "+gP
 
 " source current line or visual selection
 vnoremap <Leader>S y:execute @@<CR>:echo 'Sourced selection.'<CR>
