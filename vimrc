@@ -72,7 +72,6 @@ set shiftwidth=4
 set novisualbell                " turn off visualbell
 set noerrorbells
 set background=dark
-set relativenumber              " relative line numbers
 set number                      " line numbers on
 set showmatch                   " show matching brackets/parenthesis
 set expandtab
@@ -90,6 +89,11 @@ set cursorline                  " mark cursor position
 set laststatus=2                " always show status bar
 set hidden                      " unsaved buffers are hidden now (no more errors when opening new file while having unsaved changes)
 set mouse=a                     " enable scrolling
+
+" 'smart' realtive line numbers
+set relativenumber
+autocmd InsertEnter * :set norelativenumber number
+autocmd InsertLeave * :set relativenumber  number
 
 filetype plugin on
 filetype on
