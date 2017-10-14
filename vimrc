@@ -265,7 +265,7 @@ let g:neomake_warning_sign = {
     \ }
 " pandoc {{{2
 let g:pandoc#folding#fdc = 0
-let g:pandoc#spell#enabled = 0
+let g:pandoc#spell#default_langs = ['en', 'pl']
 let g:pandoc#syntax#codeblocks#embeds#langs = ['java', 'python', 'bash=sh', 'sql', 'groovy']
 " TagBar {{{2
 nnoremap <silent> <F9> :TagbarToggle<CR>
