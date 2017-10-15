@@ -221,7 +221,7 @@ nnoremap <Leader>E :BTags<CR>
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>s :Ag<space>
 "airline {{{2
-let g:airline_powerline_fonts=1
+let g:airline_powerline_fonts=0
 let g:airline#extensions#tabline#enabled = 1
 "tmux-navigator {{{2
 augroup navigator
