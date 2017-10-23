@@ -65,9 +65,6 @@ else
     "set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 12
 endif
 
-" shell with customizations (so bash functions are detected)
-set shell=bash\ --login
-
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
