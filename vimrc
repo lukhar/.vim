@@ -99,6 +99,13 @@ filetype plugin on
 filetype on
 filetype indent on
 
+" incremental highlighting for all matches
+augroup vimrc-incsearch-highlight
+  autocmd!
+  autocmd CmdlineEnter [/\?] :set hlsearch
+  autocmd CmdlineLeave [/\?] :set nohlsearch
+augroup END
+
 "color scheme
 silent! colorscheme solarized
 syntax on
