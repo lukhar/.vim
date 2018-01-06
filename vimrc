@@ -22,13 +22,13 @@ Plug 'ensime/ensime-vim', { 'for': 'scala'}
 Plug 'hashivim/vim-terraform'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'justinmk/vim-dirvish'
 Plug 'jwhitley/vim-colors-solarized'
 Plug 'kana/vim-textobj-user' | Plug 'bps/vim-textobj-python'
 Plug 'lsdr/monokai'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'machakann/vim-highlightedyank'
 Plug 'majutsushi/tagbar'
-Plug 'manasthakur/vim-vinegar'
 Plug 'mattn/emmet-vim'
 Plug 'nanotech/jellybeans.vim'
 Plug 'othree/xml.vim'
@@ -277,9 +277,6 @@ let g:pandoc#spell#default_langs = ['en', 'pl']
 let g:pandoc#syntax#codeblocks#embeds#langs = ['java', 'python', 'bash=sh', 'sql', 'groovy']
 " TagBar {{{2
 nnoremap <silent> <F9> :TagbarToggle<CR>
-" netrw {{{2
-let g:netrw_liststyle = 3
-let g:netrw_localrmdir='rm -r'
 " gutentags {{{2
 let g:gutentags_define_advanced_commands = 1
 let g:gutentags_enabled = 0
