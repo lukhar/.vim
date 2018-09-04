@@ -18,7 +18,6 @@ Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'embear/vim-localvimrc'
-Plug 'ensime/ensime-vim', { 'for': 'scala'}
 Plug 'hashivim/vim-terraform'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
