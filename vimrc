@@ -19,6 +19,7 @@ Plug 'dhruvasagar/vim-table-mode'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'embear/vim-localvimrc'
 Plug 'hashivim/vim-terraform'
+Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-slash'
@@ -43,8 +44,6 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-pandoc/vim-pandoc-syntax' | Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-scripts/matchit.zip'
 Plug 'xolox/vim-misc' | Plug 'xolox/vim-reload'
@@ -227,9 +226,18 @@ nnoremap <Leader>w :Windows<CR>
 nnoremap <Leader>E :BTags<CR>
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>s :Ag<space>
-"airline {{{2
-let g:airline_powerline_fonts=0
-let g:airline#extensions#tabline#enabled = 1
+"lightline {{{2
+let g:lightline = {
+      \ 'colorscheme': 'solarized',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ], [ 'gitbranch', 'filename' ] ],
+      \   'ritht': [ [ 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head',
+      \ },
+      \ 'subseparator': { 'left': '|', 'right': '|' }
+      \ }
 "tmux-navigator {{{2
 augroup navigator
   autocmd!
