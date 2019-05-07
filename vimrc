@@ -19,7 +19,7 @@ Plug 'dhruvasagar/vim-table-mode'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'embear/vim-localvimrc'
 Plug 'hashivim/vim-terraform'
-Plug 'itchyny/lightline.vim'
+Plug 'itchyny/lightline.vim' | Plug 'mengelbrecht/lightline-bufferline'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-slash'
@@ -227,17 +227,27 @@ nnoremap <Leader>E :BTags<CR>
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>s :Ag<space>
 "lightline {{{2
+set showtabline=2
 let g:lightline = {
       \ 'colorscheme': 'solarized',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ], [ 'gitbranch', 'filename' ] ],
-      \   'ritht': [ [ 'readonly', 'filename', 'modified' ] ]
+      \   'ritht': [ [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
       \ },
       \ 'component_function': {
+      \   'filename': 'LightLineFilename',
       \   'gitbranch': 'fugitive#head',
+      \   'cocstatus': 'coc#status',
       \ },
       \ 'subseparator': { 'left': '|', 'right': '|' }
       \ }
+let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
+let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
+let g:lightline.component_type   = {'buffers': 'tabsel'}
+
+function! LightLineFilename()
+  return expand('%')
+endfunction
 "tmux-navigator {{{2
 augroup navigator
   autocmd!
