@@ -232,21 +232,30 @@ let g:lightline = {
       \ 'colorscheme': 'solarized',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ], [ 'gitbranch', 'filename' ] ],
-      \   'ritht': [ [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
+      \   'right': [ [ 'lineinfo', 'cocstatus'],
+      \            [ 'percent'],
+      \            [ 'obsession', 'fileformat', 'fileencoding', 'filetype' ] ]
       \ },
       \ 'component_function': {
       \   'filename': 'LightLineFilename',
+      \   'obsession': 'LightlineObsession',
       \   'gitbranch': 'fugitive#head',
-      \   'cocstatus': 'coc#status',
+      \ },
+      \ 'component_expand': {
+      \   'buffers': 'lightline#bufferline#buffers',
+      \   'obsession': 'LightlineObsession',
       \ },
       \ 'subseparator': { 'left': '|', 'right': '|' }
       \ }
 let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
-let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
 let g:lightline.component_type   = {'buffers': 'tabsel'}
 
 function! LightLineFilename()
   return expand('%')
+endfunction
+
+function! LightlineObsession()
+    return '%{ObsessionStatus()}'
 endfunction
 "tmux-navigator {{{2
 augroup navigator
