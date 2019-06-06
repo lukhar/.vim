@@ -24,8 +24,8 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-slash'
 Plug 'justinmk/vim-dirvish'
-Plug 'jwhitley/vim-colors-solarized'
 Plug 'kana/vim-textobj-user' | Plug 'bps/vim-textobj-python'
+Plug 'lifepillar/vim-solarized8'
 Plug 'lsdr/monokai'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'machakann/vim-highlightedyank'
@@ -105,8 +105,13 @@ augroup vimrc-incsearch-highlight
   autocmd CmdlineLeave [/\?] :set nohlsearch
 augroup END
 
+" set Vim-specific sequences for RGB colors
+set termguicolors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
 "color scheme
-silent! colorscheme solarized
+silent! colorscheme solarized8
 syntax on
 
 " auto completion adjustments
