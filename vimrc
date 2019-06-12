@@ -160,6 +160,9 @@ let mapleader=" "
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
 
+" open file in the same dir
+cmap ew e <C-R>=expand("%:p:h") . "/" <CR>
+
 " remove trailing spaces
 nmap _$ :%s/\v\s+$//e<CR>
 
