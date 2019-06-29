@@ -11,6 +11,7 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'airblade/vim-gitgutter'
 Plug 'benekastah/neomake'
 Plug 'bigbrozer/vim-nagios'
+Plug 'cespare/vim-toml'
 Plug 'chrisbra/vim-diff-enhanced'
 Plug 'christoomey/vim-system-copy'
 Plug 'christoomey/vim-tmux-navigator'
