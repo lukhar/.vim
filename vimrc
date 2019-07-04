@@ -13,6 +13,7 @@ Plug 'benekastah/neomake'
 Plug 'bigbrozer/vim-nagios'
 Plug 'cespare/vim-toml'
 Plug 'chrisbra/vim-diff-enhanced'
+Plug 'cespare/vim-toml'
 Plug 'christoomey/vim-system-copy'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
@@ -34,6 +35,7 @@ Plug 'majutsushi/tagbar'
 Plug 'mattn/emmet-vim'
 Plug 'nanotech/jellybeans.vim'
 Plug 'othree/xml.vim'
+Plug 'vim-python/python-syntax'
 Plug 'rodjek/vim-puppet'
 Plug 'tfnico/vim-gradle'
 Plug 'tpope/vim-abolish'
@@ -48,6 +50,8 @@ Plug 'tpope/vim-unimpaired'
 Plug 'vim-pandoc/vim-pandoc-syntax' | Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-scripts/matchit.zip'
 Plug 'xolox/vim-misc' | Plug 'xolox/vim-reload'
+Plug 'lervag/vimtex'
+
 call plug#end()
 
 "preferred editor setup {{{1
@@ -89,6 +93,10 @@ set cursorline                  " mark cursor position
 set laststatus=2                " always show status bar
 set hidden                      " unsaved buffers are hidden now (no more errors when opening new file while having unsaved changes)
 set mouse=a                     " enable scrolling
+set shortmess+=c                " don't give |ins-completion-menu| messages
+set nobackup
+set nowritebackup
+set path+=**                     " easier find (no **/ necessary)
 
 " 'smart' realtive line numbers
 set relativenumber
@@ -162,7 +170,7 @@ let mapleader=" "
 cmap w!! w !sudo tee > /dev/null %
 
 " open file in the same dir
-cmap ew e <C-R>=expand("%:p:h") . "/" <CR>
+cmap eW e <C-R>=expand("%:p:h") . "/" <CR>
 
 " remove trailing spaces
 nmap _$ :%s/\v\s+$//e<CR>
@@ -249,15 +257,21 @@ let g:lightline = {
       \   'filename': 'LightLineFilename',
       \   'obsession': 'LightlineObsession',
       \   'gitbranch': 'fugitive#head',
+      \   'cocstatus': 'coc#status'
       \ },
       \ 'component_expand': {
       \   'buffers': 'lightline#bufferline#buffers',
-      \   'obsession': 'LightlineObsession',
+      \   'obsession': 'LightlineObsession'
+      \ },
+      \ 'component_type': {
+      \   'buffers': 'tabsel'
+      \ },
+      \ 'tabline': {
+      \   'left': [['buffers']],
+      \   'right': [['close']]
       \ },
       \ 'subseparator': { 'left': '|', 'right': '|' }
       \ }
-let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
-let g:lightline.component_type   = {'buffers': 'tabsel'}
 
 function! LightLineFilename()
   return expand('%')
@@ -319,6 +333,14 @@ let g:gutentags_cache_dir = '~/.cache/gutentags'
 " highlightedyank {{{2
 map y <Plug>(highlightedyank)
 let g:highlightedyank_highlight_duration = 150
+" vimtex {{{2
+if has('unix')
+  if has('mac')
+    let g:vimtex_view_method = 'skim'
+  else
+    let g:vimtex_view_method = 'zathura'
+  endif
+endif
 " scripts {{{1
 xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
 
