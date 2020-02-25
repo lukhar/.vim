@@ -11,7 +11,6 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'airblade/vim-gitgutter'
 Plug 'benekastah/neomake'
 Plug 'bigbrozer/vim-nagios'
-Plug 'camspiers/lens.vim' | Plug 'camspiers/animate.vim'
 Plug 'cespare/vim-toml'
 Plug 'chrisbra/vim-diff-enhanced'
 Plug 'cespare/vim-toml'
