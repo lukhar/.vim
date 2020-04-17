@@ -63,8 +63,8 @@ call plug#end()
 if has("gui_macvim")
     set guifont=Monaco\ for\ Powerline\:h11
 else
-    "set guifont=DejaVu\ Sans\ Mono\ 10
-    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10
+    "set guifont=DejaVu\ Sans\ Mono 10
+    "set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10
     "set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 10
     "set guifont=Liberation\ Mono\ for\ Powerline\,Literation\ Mono\ Powerline\ 10
     "set guifont=Anonymous\ Pro\ for\ Powerline\,Anonymice\ Powerline\ 12
@@ -356,6 +356,7 @@ if has('unix')
 endif
 " nertw {{{2
 let g:netrw_liststyle = 3
+let g:netrw_localrmdir='rm -r'
 " scripts {{{1
 xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
 
