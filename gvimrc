@@ -15,3 +15,5 @@ colorscheme solarized
 "set guioptions-=R
 
 set guioptions=
+
+set guifont=DejaVu\ Sans\ Mono 10
