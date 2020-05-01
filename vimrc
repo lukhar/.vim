@@ -226,14 +226,26 @@ nmap <C-Down> ]e
 vmap <C-Up> [egv
 vmap <C-Down> ]egv
 "UltiSnips  {{{2
-let g:UltiSnipsSnippetDirectories=["customized_snippets", "bundle/vim-snippets/UltiSnips"]
+let g:UltiSnipsSnippetDirectories=[$HOME."/.config/nvim/mysnippets"]
 
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
-let g:ultisnips_python_quoting_style="single"
+let g:ultisnips_python_quoting_style="double"
 let g:ultisnips_python_style="sphinx"
+
+if !exists("g:snips_author")
+    let g:snips_author = "yourname"
+endif
+
+if !exists("g:snips_email")
+    let g:snips_email = "yourname@email.com"
+endif
+
+if !exists("g:snips_github")
+    let g:snips_github = "https://github.com/yourname"
+endif
 "fzf {{{2
 if executable('ag')
     let $FZF_DEFAULT_COMMAND = 'ag -g ""'
