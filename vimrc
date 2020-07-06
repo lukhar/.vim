@@ -319,14 +319,10 @@ nnoremap <silent> <C-l> :TmuxNavigateRight<CR>
 " solarized {{{2
 silent! call togglebg#map("<F10>")
 " YouCompleteMe {{{2
-let g:ycm_filetype_blacklist = {
-    \ 'tagbar' : 1,
-    \ 'qf' : 1,
-    \ 'unite' : 1,
-    \}
 let g:ycm_auto_trigger = 1
 let g:ycm_key_detailed_diagnostics = '' " disable default mapping
 let g:ycm_key_list_previous_completion = ['<S-TAB>']
+let g:ycm_max_num_candidates = 20
 nnoremap <Leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 " local-vimrc {{{2
 let g:localvimrc_ask = 0
