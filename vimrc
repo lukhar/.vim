@@ -355,6 +355,7 @@ augroup END
 map y <Plug>(highlightedyank)
 let g:highlightedyank_highlight_duration = 150
 " vimtex {{{2
+let g:tex_flavor = 'latex'
 if has('unix')
   if has('mac')
     let g:vimtex_view_method = 'skim'
