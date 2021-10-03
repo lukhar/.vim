@@ -6,12 +6,11 @@ set nocompatible
 "repositories {{{1
 call plug#begin('~/.vim/plugged')
 Plug 'Raimondi/delimitMate'
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'airblade/vim-gitgutter'
 Plug 'benekastah/neomake'
 Plug 'bigbrozer/vim-nagios'
-Plug 'cespare/vim-toml'
+Plug 'bps/vim-textobj-python', { 'for': 'python' }
+Plug 'cespare/vim-toml', { 'for': 'toml' }
 Plug 'chrisbra/vim-diff-enhanced'
 Plug 'christoomey/vim-system-copy'
 Plug 'christoomey/vim-tmux-navigator'
@@ -20,22 +19,14 @@ Plug 'dhruvasagar/vim-table-mode'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'embear/vim-localvimrc'
 Plug 'hashivim/vim-terraform'
-Plug 'itchyny/lightline.vim' | Plug 'mengelbrecht/lightline-bufferline'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'junegunn/vim-slash'
-Plug 'kana/vim-textobj-user' | Plug 'bps/vim-textobj-python'
+Plug 'itchyny/lightline.vim'
+Plug 'kana/vim-textobj-user', { 'for': 'python' }
 Plug 'lifepillar/vim-solarized8'
 Plug 'lsdr/monokai'
-Plug 'ludovicchabant/vim-gutentags'
 Plug 'machakann/vim-highlightedyank'
-Plug 'majutsushi/tagbar'
-Plug 'mattn/emmet-vim'
 Plug 'martinda/Jenkinsfile-vim-syntax'
 Plug 'nanotech/jellybeans.vim'
 Plug 'othree/xml.vim'
-Plug 'vim-python/python-syntax'
-Plug 'rodjek/vim-puppet'
 Plug 'tfnico/vim-gradle'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
@@ -49,11 +40,9 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
 Plug 'vim-pandoc/vim-pandoc-syntax' | Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-python/python-syntax', { 'for': 'python' }
 Plug 'vim-scripts/groovyindent-unix'
 Plug 'vim-scripts/matchit.zip'
-Plug 'lervag/vimtex'
-Plug 'leafgarland/typescript-vim'
-Plug 'peitalin/vim-jsx-typescript'
 
 call plug#end()
 
@@ -205,10 +194,18 @@ map <silent> <A-l> <C-w>2>
 " numbered search results for easier navigation
 nnoremap // :g//#<Left><Left>
 
-" use ag instaed of grep
-if executable('ag')
+" use rg or ag instead of grep
+if executable("rg")
+  set grepprg=rg\ --vimgrep\ --no-heading
+  set grepformat=%f:%l:%c:%m,%f:%l:%m
+elseif executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
+  set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
+
+" file opening through partial matching (nested in directories or over path)
+nnoremap ;e :e **/*
+nnoremap ;f :find **/*
 
 "plugin settings {{{1
 "xml {{{2
@@ -225,41 +222,6 @@ nmap <C-Down> ]e
 " Bubble multiple lines
 vmap <C-Up> [egv
 vmap <C-Down> ]egv
-"UltiSnips  {{{2
-let g:UltiSnipsSnippetDirectories=[$HOME."/.config/nvim/mysnippets"]
-
-let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-
-let g:ultisnips_python_quoting_style="double"
-let g:ultisnips_python_style="sphinx"
-
-if !exists("g:snips_author")
-    let g:snips_author = "yourname"
-endif
-
-if !exists("g:snips_email")
-    let g:snips_email = "yourname@email.com"
-endif
-
-if !exists("g:snips_github")
-    let g:snips_github = "https://github.com/yourname"
-endif
-"fzf {{{2
-if executable('ag')
-    let $FZF_DEFAULT_COMMAND = 'ag -g ""'
-endif
-
-"let g:fzf_layout = { 'up': '~40%' }
-nnoremap <Leader>r :GFiles<CR>
-nnoremap <Leader>f :Files<CR>
-nnoremap <Leader>n :Files $NOTES<CR>
-nnoremap <Leader>e :Tags<CR>
-nnoremap <Leader>w :Windows<CR>
-nnoremap <Leader>E :BTags<CR>
-nnoremap <Leader>b :Buffers<CR>
-nnoremap <Leader>s :Ag<space>
 "lightline {{{2
 set showtabline=2
 let g:lightline = {
@@ -318,12 +280,6 @@ nnoremap <silent> <C-l> :TmuxNavigateRight<CR>
 
 " solarized {{{2
 silent! call togglebg#map("<F10>")
-" YouCompleteMe {{{2
-let g:ycm_auto_trigger = 1
-let g:ycm_key_detailed_diagnostics = '' " disable default mapping
-let g:ycm_key_list_previous_completion = ['<S-TAB>']
-let g:ycm_max_num_candidates = 20
-nnoremap <Leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 " local-vimrc {{{2
 let g:localvimrc_ask = 0
 let g:localvimrc_sandbox = 0
@@ -341,28 +297,9 @@ let g:pandoc#spell#default_langs = ['en', 'pl']
 let g:pandoc#syntax#codeblocks#embeds#langs = ['java', 'python', 'bash=sh', 'sql', 'groovy']
 " TagBar {{{2
 nnoremap <silent> <F9> :TagbarToggle<CR>
-" gutentags {{{2
-let g:gutentags_define_advanced_commands = 1
-let g:gutentags_cache_dir = '~/.cache/gutentags'
-let g:gutentags_file_list_command = 'rg --files'
-
-augroup MyGutentagsStatusLineRefresher
-    autocmd!
-    autocmd User GutentagsUpdating call lightline#update()
-    autocmd User GutentagsUpdated call lightline#update()
-augroup END
 " highlightedyank {{{2
 map y <Plug>(highlightedyank)
 let g:highlightedyank_highlight_duration = 150
-" vimtex {{{2
-let g:tex_flavor = 'latex'
-if has('unix')
-  if has('mac')
-    let g:vimtex_view_method = 'skim'
-  else
-    let g:vimtex_view_method = 'zathura'
-  endif
-endif
 " nertw {{{2
 let g:netrw_liststyle = 3
 let g:netrw_localrmdir='rm -r'

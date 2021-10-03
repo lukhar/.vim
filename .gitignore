@@ -4,6 +4,7 @@ spell/
 swp/
 # vim temp files
 *.swp       
+.vim
 # plugins dir
 *bundle
 *plugged
