@@ -155,6 +155,7 @@ if has("wildmenu")
     set wildignore+=*~,*.swp,*.tmp
     set wildmenu
     set wildmode=longest:full,full " command <Tab> completion, list matches, then longest common part, then all.
+    set wildoptions+=pum
 endif"}}}
 " mappings {{{2
 " set <Leader> to <space> instead of \
@@ -164,7 +165,7 @@ let mapleader=" "
 cmap w!! w !sudo tee > /dev/null %
 
 " open file in the same dir
-cmap eW e <C-R>=expand("%:p:h") . "/" <CR>
+cmap eE e <C-R>=expand("%:p:h") . "/" <CR>
 
 " remove trailing spaces
 nmap _$ :%s/\v\s+$//e<CR>
@@ -206,6 +207,8 @@ endif
 " file opening through partial matching (nested in directories or over path)
 nnoremap ;e :e **/*
 nnoremap ;f :find **/*
+cmap ee e **/*
+cmap ff find **/*
 
 "plugin settings {{{1
 "xml {{{2
