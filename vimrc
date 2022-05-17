@@ -164,9 +164,6 @@ let mapleader=" "
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
 
-" open file in the same dir
-cmap eE e <C-R>=expand("%:p:h") . "/" <CR>
-
 " remove trailing spaces
 nmap _$ :%s/\v\s+$//e<CR>
 
@@ -207,8 +204,8 @@ endif
 " file opening through partial matching (nested in directories or over path)
 nnoremap ;e :e **/*
 nnoremap ;f :find **/*
-cmap ee e **/*
-cmap ff find **/*
+cmap eE e **/*
+cmap fF find **/*
 
 "plugin settings {{{1
 "xml {{{2
