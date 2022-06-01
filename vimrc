@@ -32,7 +32,7 @@ Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch' | Plug 'radenling/vim-dispatch-neovim'
 Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-fugitive', { 'commit': 'b7287bd5421da62986d9abf9131509b2c9f918e4' }
+Plug 'tpope/vim-fugitive' ", { 'commit': 'b7287bd5421da62986d9abf9131509b2c9f918e4' }
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
@@ -236,7 +236,7 @@ let g:lightline = {
       \ 'component_function': {
       \   'filename': 'LightLineFilename',
       \   'obsession': 'LightlineObsession',
-      \   'gitbranch': 'fugitive#head',
+      \   'gitbranch': 'FugitiveHead',
       \   'cocstatus': 'coc#status',
       \   'gutentags': 'gutentags#statusline',
       \ },
