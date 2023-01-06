@@ -65,6 +65,7 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 
+set noswapfile
 set novisualbell                " turn off visualbell
 set noerrorbells
 set background=dark
@@ -206,6 +207,9 @@ nnoremap ;e :e **/*
 nnoremap ;f :find **/*
 cmap eE e **/*
 cmap fF find **/*
+
+" work with jupytext
+cmap jpt Dispatch !jupytext --update --to notebook %:t
 
 "plugin settings {{{1
 "xml {{{2
