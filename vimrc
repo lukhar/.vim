@@ -32,7 +32,7 @@ Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch' | Plug 'radenling/vim-dispatch-neovim'
 Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-fugitive' ", { 'commit': 'b7287bd5421da62986d9abf9131509b2c9f918e4' }
+Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
@@ -115,7 +115,14 @@ let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 "color scheme
-silent! colorscheme solarized8
+let hostname = substitute(system('hostname'), '\n', '', '')
+
+if hostname == "lharatym-q4c-jupyter"
+  silent! colorscheme jellybeans
+else
+  silent! colorscheme solarized8
+endif
+
 syntax on
 
 " auto completion adjustments
@@ -151,12 +158,14 @@ set tags=./.tags,.tags,./tags,tags
 
 " wildmenu {{{2
 if has("wildmenu")
-    set wildignore+=*.a,*.o,*.pyc
-    set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png
-    set wildignore+=*~,*.swp,*.tmp
-    set wildmenu
-    set wildmode=longest:full,full " command <Tab> completion, list matches, then longest common part, then all.
+  set wildignore+=*.a,*.o,*.pyc
+  set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png
+  set wildignore+=*~,*.swp,*.tmp
+  set wildmenu
+  set wildmode=longest:full,full " command <Tab> completion, list matches, then longest common part, then all.
+  if v:version >= 900
     set wildoptions+=pum
+  endif
 endif"}}}
 " mappings {{{2
 " set <Leader> to <space> instead of \
@@ -209,7 +218,7 @@ cmap eE e **/*
 cmap fF find **/*
 
 " work with jupytext
-cmap jpt Dispatch !jupytext --update --to notebook %:t
+cmap jpt Dispatch !jupytext --update --to notebook %
 
 "plugin settings {{{1
 "xml {{{2
@@ -283,7 +292,7 @@ nnoremap <silent> <C-k> :TmuxNavigateUp<CR>
 nnoremap <silent> <C-l> :TmuxNavigateRight<CR>
 
 " solarized {{{2
-silent! call togglebg#map("<F10>")
+nnoremap <F10> :call ToggleBackground()<CR>
 " local-vimrc {{{2
 let g:localvimrc_ask = 0
 let g:localvimrc_sandbox = 0
@@ -307,10 +316,22 @@ let g:highlightedyank_highlight_duration = 150
 " nertw {{{2
 let g:netrw_liststyle = 3
 let g:netrw_localrmdir='rm -r'
+" cscope {{{2
+if system('git rev-parse --is-inside-work-tree >/dev/null 2>&1') == 0
+   call system("mkdir -p `git rev-parse --show-toplevel`/.vim")
+endif
 " scripts {{{1
 xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
 
 function! ExecuteMacroOverVisualRange()
   echo "@".getcmdline()
   execute ":'<,'>normal @".nr2char(getchar())
+endfunction
+
+function! ToggleBackground()
+    if &background == "dark"
+        set background=light
+    else
+        set background=dark
+    endif
 endfunction
